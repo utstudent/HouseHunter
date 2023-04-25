@@ -10,4 +10,48 @@ public class ApplicationController {
     public String goHome(){
         return  "index";
     }
+
+    @GetMapping("/blank")
+    public String goToBlank(){
+        return  "pages-blank";
+    }
+
+    @GetMapping("/table")
+    public String goToTable(){
+        return  "tables-data";
+    }
+
+    @GetMapping("/table2")
+    public String goToTable2(){
+        return  "tables-general";
+    }
+
+    @GetMapping("/form")
+    public String goToFormsLayout(){
+        return  "forms-layouts";
+    }
+    @GetMapping("/form2")
+    public String goToFormsEditors(){
+        return  "forms-editors";
+    }
+
+    @GetMapping("/form3")
+    public String goToFormsElements(){
+        return  "forms-elements";
+    }
+
+    @GetMapping("/form4")
+    public String goToFormsValidation(){
+        return  "forms-validation";
+    }
+
+    @GetMapping("/modal")
+    public String goToModal(){
+        return  "components-modal";
+    }
+
+    @GetMapping("/buttons")
+    public String goToButtons(){
+        return  "components-buttons";
+    }
 }

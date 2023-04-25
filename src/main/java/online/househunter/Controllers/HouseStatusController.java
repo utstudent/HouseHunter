@@ -1,7 +1,13 @@
 package online.househunter.Controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HouseStatusController {
+
+    @GetMapping("/housestatus")
+    public String goHouseStatus(){
+        return  "houseStatus";
+    }
 }
