@@ -530,53 +530,7 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verticalycentered">
       New Country
     </button>
-    <div class="modal fade" id="verticalycentered" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New Country</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
 
-            <form th:action="@{/countries/addNew}" method="post">
-
-              <div class="form-group">
-                <label for="description" class="col-form-label">Description:</label>
-                <input type="text" class="form-control" id="description" name="description">
-              </div>
-              <div class="form-group">
-                <label for="capital" class="col-form-label">Capital:</label>
-                <input type="text" class="form-control" id="capital" name="capital">
-              </div>
-              <div class="form-group">
-                <label for="code" class="col-form-label">Code:</label>
-                <input type="text" class="form-control" id="code" name="code">
-              </div>
-              <div class="form-group">
-                <label for="continent" class="col-form-label">Continent:</label>
-                <input type="text" class="form-control" id="continent" name="continent">
-              </div>
-              <div class="form-group">
-                <label for="nationality" class="col-form-label">Nationality:</label>
-                <input type="text" class="form-control" id="nationality" name="nationality">
-              </div>
-
-              <div class="form-group">
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-
-              </div>
-
-            </form>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Vertically centered Modal-->
 
 
     <!-- Table with stripped rows -->
@@ -600,15 +554,15 @@
         <td th:text="${country.continent}"></td>
         <td>
           <div class="btn-group">
-            <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton">Edit</a>
+            <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton" data-bs-target="#editModal">Edit</a>
             <!--<a class="btn btn-primary" th:href="@{/countries/findById/(id=${country.id})}"><i class="icon_pencil-edit"></i></a>-->
 
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <!-- End Table with stripped rows -->
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <!-- End Table with stripped rows -->
 
 
 
@@ -642,7 +596,7 @@
 
           <form th:action="@{/countries/update}" method="put">
             <div class="form-group">
-              <label for="description" class="col-form-label">Description:</label>
+              <label for="idEdit" class="col-form-label">Description:</label>
               <input type="text" class="form-control" id="idEdit" name="id" readonly>
             </div>
             <div class="form-group">
@@ -664,6 +618,50 @@
             <div class="form-group">
               <label for="nationalityEdit" class="col-form-label">Nationality:</label>
               <input type="text" class="form-control" id="nationalityEdit" name="nationality">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Vertically centered Modal-->
+
+  <div class="modal fade" id="verticalycentered" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Country</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/countries/addNew}" method="post">
+
+            <div class="form-group">
+              <label for="description" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="description" name="description">
+            </div>
+            <div class="form-group">
+              <label for="capital" class="col-form-label">Capital:</label>
+              <input type="text" class="form-control" id="capital" name="capital">
+            </div>
+            <div class="form-group">
+              <label for="code" class="col-form-label">Code:</label>
+              <input type="text" class="form-control" id="code" name="code">
+            </div>
+            <div class="form-group">
+              <label for="continent" class="col-form-label">Continent:</label>
+              <input type="text" class="form-control" id="continent" name="continent">
+            </div>
+            <div class="form-group">
+              <label for="nationality" class="col-form-label">Nationality:</label>
+              <input type="text" class="form-control" id="nationality" name="nationality">
             </div>
 
             <div class="form-group">
@@ -693,6 +691,9 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/js/country.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

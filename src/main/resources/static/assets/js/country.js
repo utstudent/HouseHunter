@@ -1,7 +1,7 @@
 
-$('document').ready(function(){
+$(document).ready(function(){
 
-    $('table #editButton').on('click', function(event) {
+    $('.table.btn-group#editButton').on('click', function(event) {
         event.preventDefault();
 
         var href =$(this).attr('href');
@@ -12,7 +12,7 @@ $('document').ready(function(){
             $('#capitalEdit').val(country.capital);
             $('#codeEdit').val(country.code);
             $('#continentEdit').val(country.continent);
-            $('#nationalitynEdit').val(country.nationality);
+            $('#nationalityEdit').val(country.nationality);
         });
 
         $('#editModal').modal();
