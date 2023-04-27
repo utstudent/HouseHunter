@@ -6,12 +6,13 @@ $(document).ready(function(){
 
         var href =$(this).attr('href');
 
-        $.get(href, function(state, status){
-            $('#idEdit').val(state.id);
-            $('#nameEdit').val(state.name);
-            $('#capitalEdit').val(state.capital);
-            $('#codeEdit').val(state.code);
-            $('#ddlCountryEdit').val(state.countryid);
+        $.get(href, function(location, status){
+            $('#idEdit').val(location.id);
+            $('#addressEdit').val(location.address);
+            $('#cityEdit').val(location.city);
+            $('#ddlStateEdit').val(location.stateid);
+            $('#zipcodeEdit').val(location.zipcode);
+            $('#ddlCountryEdit').val(location.countryid);
         });
         $('#editModal').modal();
     });
@@ -30,12 +31,13 @@ $(document).ready(function(){
 
             var href =$(this).attr('href');
 
-            $.get(href, function(state, status){
-                $('#idDetail').val(state.id);
-                $('#nameDetail').val(state.name);
-                $('#capitalDetail').val(state.capital);
-                $('#codeDetail').val(state.code);
-                $('#ddlCountryDetail').val(state.countryid);
+            $.get(href, function(location, status){
+                $('#idDetail').val(location.id);
+                $('#addressDetail').val(location.address);
+                $('#cityDetail').val(location.city);
+                $('#ddlStateDetail').val(location.stateid);
+                $('#zipcodeDetail').val(location.zipcode);
+                $('#ddlCountryDetail').val(location.countryid);
                 $('#lastModifiedByDetails').val(state.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
             });

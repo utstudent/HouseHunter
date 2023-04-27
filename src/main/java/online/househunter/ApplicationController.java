@@ -54,4 +54,8 @@ public class ApplicationController {
     public String goToButtons(){
         return  "components-buttons";
     }
+    @GetMapping("/userprofile")
+    public String goToUserProfiles(){
+        return  "users-profile";
+    }
 }

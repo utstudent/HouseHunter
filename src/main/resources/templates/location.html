@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -275,7 +275,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link " th:href="@{/index}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -283,77 +283,22 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-houses"></i><span>Houses</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
+            <a th:href="@{/houses}">
+              <i class="bi bi-circle"></i><span>House Data</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
+            <a th:href="@{/housetype}">
+              <i class="bi bi-circle"></i><span>House Type</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
+            <a th:href="@{/housestatus}">
+              <i class="bi bi-circle"></i><span>House Status</span>
             </a>
           </li>
         </ul>
@@ -361,27 +306,32 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-people"></i><span>People</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a th:href="@{/employees}">
+              <i class="bi bi-circle"></i><span>Employees</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            <a th:href="@{/clients}">
+              <i class="bi bi-circle"></i><span>Clients</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
+            <a th:href="@{/suppliers}">
+              <i class="bi bi-circle"></i><span>Suppliers</span>
             </a>
           </li>
           <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a th:href="@{/contacts}">
+              <i class="bi bi-circle"></i><span>Contacts</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/users}">
+              <i class="bi bi-circle"></i><span>Users</span>
             </a>
           </li>
         </ul>
@@ -389,17 +339,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-gear"></i><span>HR Settings</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+            <a th:href="@{/jobtitles}">
+              <i class="bi bi-circle"></i><span>Job Titles</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a th:href="@{/employeetypes}">
+              <i class="bi bi-circle"></i><span>Employee Types</span>
             </a>
           </li>
         </ul>
@@ -407,22 +357,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-receipt"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a th:href="@{/invoices}">
+              <i class="bi bi-circle"></i><span>Invoices</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
+            <a th:href="@{/invoicestatus}">
+              <i class="bi bi-circle"></i><span>Invoice Status Values</span>
             </a>
           </li>
         </ul>
@@ -430,22 +375,22 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-globe"></i><span>Globals</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+            <a th:href="@{/countries}">
+              <i class="bi bi-circle"></i><span>Countries</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
+            <a th:href="@{/states}">
+              <i class="bi bi-circle"></i><span>States</span>
             </a>
           </li>
           <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
+            <a th:href="@{/locations}">
+              <i class="bi bi-circle"></i><span>Locations</span>
             </a>
           </li>
         </ul>
@@ -488,20 +433,6 @@
         </a>
       </li><!-- End Login Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link " href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -519,14 +450,42 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-      <div class="row">
-        <h1> List of locations </h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+      New Location
+    </button>
 
-
-        </div>
-      </div>
-    </section>
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Country</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="location:${locations}">
+        <td th:text="${location.id}"></td>
+        <td th:text="${location.address}"></td>
+        <td th:text="${location.city}"></td>
+        <td th:text="${location.stateid}"></td>
+        <td th:text="${location.zipcode}"></td>
+        <td th:text="${location.countryid}"></td>
+        <td>
+          <div class="btn-group">
+            <a th:href="@{/locations/findById/(id=${location.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+            <a th:href="@{/locations/findById/(id=${location.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+            <a th:href="@{/locations/delete/(id=${location.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
 
   </main><!-- End #main -->
 
@@ -546,6 +505,229 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Location</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/locations/update}" method="put">
+
+            <div class="form-group">
+              <label for="idEdit" class="col-form-label">id:</label>
+              <input type="text" class="form-control" id="idEdit" name="id" readonly>
+            </div>
+            <div class="form-group">
+              <label for="addressEdit" class="col-form-label">Address:</label>
+              <input type="text" class="form-control" id="addressEdit" name="address">
+            </div>
+            <div class="form-group">
+              <label for="cityEdit" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="cityEdit" name="city">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlStateEdit" class="col-form-label">State: </label>
+              <select class="form-control" id="ddlStateEdit" name="stateid">
+                <option>-SELECT-</option>
+                <option th:each="state : ${states}"
+                        th:value="${state.id}"
+                        th:text="${state.name}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="zipcodeEdit" class="col-form-label">Zip Code:</label>
+              <input type="text" class="form-control" id="zipcodeEdit" name="zipcode">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlCountryEdit" class="col-form-label">Country: </label>
+              <select class="form-control" id="ddlCountryEdit" name="countryid">
+                <option>-SELECT-</option>
+                <option th:each="country : ${countries}"
+                        th:value="${country.id}"
+                        th:text="${country.description}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit Modal-->
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Location</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/locations/addNew}" method="post">
+
+            <div class="form-group">
+              <label for="addressAdd" class="col-form-label">Address:</label>
+              <input type="text" class="form-control" id="addressAdd" name="address">
+            </div>
+            <div class="form-group">
+              <label for="cityAdd" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="cityAdd" name="city">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlStateAdd" class="col-form-label">State: </label>
+              <select class="form-control" id="ddlStateAdd" name="stateid">
+                <option>-SELECT-</option>
+                <option th:each="state : ${states}"
+                        th:value="${state.id}"
+                        th:text="${state.name}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="zipcodeAdd" class="col-form-label">Zip Code:</label>
+              <input type="text" class="form-control" id="zipcodeAdd" name="zipcode">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlCountryAdd" class="col-form-label">Country: </label>
+              <select class="form-control" id="ddlCountryAdd" name="countryid">
+                <option>-SELECT-</option>
+                <option th:each="country : ${countries}"
+                        th:value="${country.id}"
+                        th:text="${country.description}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Add Modal-->
+
+  <!-- Details Modal -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Location Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label for="idDetail" class="col-form-label">id:</label>
+              <input type="text" class="form-control" id="idDetail" name="id" readonly>
+            </div>
+            <div class="form-group">
+              <label for="addressDetail" class="col-form-label">Address:</label>
+              <input type="text" class="form-control" id="addressDetail" name="address" readonly>
+            </div>
+            <div class="form-group">
+              <label for="cityDetail" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="cityDetail" name="city" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="ddlStateDetail" class="col-form-label">State: </label>
+              <select class="form-control" id="ddlStateDetail" name="stateid" disabled>
+                <option>-SELECT-</option>
+                <option th:each="state : ${states}"
+                        th:value="${state.id}"
+                        th:text="${state.name}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="zipcodeDetail" class="col-form-label">Zip Code:</label>
+              <input type="text" class="form-control" id="zipcodeDetail" name="zipcode" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="ddlCountryDetail" class="col-form-label">Country: </label>
+              <select class="form-control" id="ddlCountryDetail" name="countryid" disabled>
+                <option>-SELECT-</option>
+                <option th:each="country : ${countries}"
+                        th:value="${country.id}"
+                        th:text="${country.description}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label">Last Updated By:</label>
+              <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label">Last Updated On:</label>
+              <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Details Modal-->
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this record?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Delete Modal-->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -555,6 +737,8 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="assets/js/location.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
