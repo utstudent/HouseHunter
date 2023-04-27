@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -528,6 +528,47 @@
       </div>
     </section>
 
+    <!-- Vertically centered Modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+      New State
+    </button>
+
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Capital</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="state:${states}">
+        <td th:text="${state.id}"></td>
+        <td th:text="${state.description}"></td>
+        <td th:text="${state.capital}"></td>
+        <td th:text="${state.code}"></td>
+        <td th:text="${state.continent}"></td>
+        <td>
+          <div class="btn-group">
+            <a th:href="@{/states/findById/(id=${state.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+            <a data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+            <a th:href="@{/states/delete/(id=${state.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+            <!--<a class="btn btn-primary" data-bs-target="#editModal" th:href="@{/states/findById/(id=${state.id})}"><i class="icon_pencil-edit"></i></a>-->
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
+
+
+
+
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -546,6 +587,128 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update State</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/states/update}" method="put">
+            <div class="form-group">
+              <label for="idEdit" class="col-form-label">id:</label>
+              <input type="text" class="form-control" id="idEdit" name="id" readonly>
+            </div>
+            <div class="form-group">
+              <label for="descriptionEdit" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="descriptionEdit" name="Name">
+            </div>
+            <div class="form-group">
+              <label for="capitalEdit" class="col-form-label">Capital:</label>
+              <input type="text" class="form-control" id="capitalEdit" name="capital">
+            </div>
+            <div class="form-group">
+              <label for="codeEdit" class="col-form-label">Code:</label>
+              <input type="text" class="form-control" id="codeEdit" name="code">
+            </div>
+            <div class="form-group">
+              <label for="continentEdit" class="col-form-label">Continent:</label>
+              <input type="text" class="form-control" id="continentEdit" name="continent">
+            </div>
+            <div class="form-group">
+              <label for="nationalityEdit" class="col-form-label">Nationality:</label>
+              <input type="text" class="form-control" id="nationalityEdit" name="nationality">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit Modal-->
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New State</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/states/addNew}" method="post">
+
+            <div class="form-group">
+              <label for="description" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="description" name="Name">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlCountryAdd" class="col-form-label">Country: </label>
+                <select class="form-control" id="ddlCountryAdd" name="countryid">
+                  <option>-SELECT-</option>
+                  <option th:each="country : ${countries}"
+                          th:value="${country.id}"
+                          th:text="${country.description}">
+                  </option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+              <label for="capital" class="col-form-label">Capital:</label>
+              <input type="text" class="form-control" id="capital" name="capital">
+            </div>
+            <div class="form-group">
+              <label for="code" class="col-form-label">Code:</label>
+              <input type="text" class="form-control" id="code" name="code">
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Add Modal-->
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this record?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Delete Modal-->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -555,6 +718,8 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="assets/js/state.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

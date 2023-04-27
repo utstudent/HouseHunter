@@ -30,4 +30,8 @@ public class CountryService {
     public Optional<Country> findById(Long id) {
         return countryRepository.findById(id);
     }
+
+    public void delete(Long id) {
+        countryRepository.deleteById(id);
+    }
 }
