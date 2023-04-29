@@ -16,9 +16,10 @@ import java.util.Optional;
 
 @Controller
 public class LocationController {
-    @Autowired private LocationService locationService;
+
     @Autowired private CountryService countryService;
     @Autowired private StateService stateService;
+    @Autowired private LocationService locationService;
 
     @GetMapping("/locations")
     public String goLocations(Model model){

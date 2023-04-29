@@ -44,9 +44,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/house-hunter-website-favicon-color.png" alt="">
+        <span class="d-none d-lg-block">House Hunter</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -292,12 +292,12 @@
             </a>
           </li>
           <li>
-            <a th:href="@{/housetype}">
+            <a th:href="@{/houseTypes}">
               <i class="bi bi-circle"></i><span>House Type</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/housestatus}">
+            <a th:href="@{/houseStatuses}">
               <i class="bi bi-circle"></i><span>House Status</span>
             </a>
           </li>
@@ -343,12 +343,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a th:href="@{/jobtitles}">
+            <a th:href="@{/jobTitles}">
               <i class="bi bi-circle"></i><span>Job Titles</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/employeetypes}">
+            <a th:href="@{/employeeTypes}">
               <i class="bi bi-circle"></i><span>Employee Types</span>
             </a>
           </li>
@@ -366,7 +366,7 @@
             </a>
           </li>
           <li>
-            <a th:href="@{/invoicestatus}">
+            <a th:href="@{/invoiceStatuses}">
               <i class="bi bi-circle"></i><span>Invoice Status Values</span>
             </a>
           </li>
@@ -440,7 +440,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Blank Page</h1>
+      <h1>Employee Types</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -450,14 +450,37 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-      <div class="row">
-        <h1> List of Employee Types </h1>
+    <!-- Vertically centered Modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+      New Employee Type
+    </button>
 
-
-        </div>
-      </div>
-    </section>
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Description</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="employeeType:${employeeTypes}">
+        <td th:text="${employeeType.id}"></td>
+        <td th:text="${employeeType.description}"></td>
+        <td th:text="${employeeType.details}"></td>
+        <td>
+          <div class="btn-group">
+            <a th:href="@{/employeeTypes/findById/(id=${employeeType.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+            <a th:href="@{/employeeTypes/findById/(id=${employeeType.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+            <a th:href="@{/employeeTypes/delete/(id=${employeeType.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
 
   </main><!-- End #main -->
 
@@ -477,6 +500,150 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Employee Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/employeeTypes/update}" method="put">
+            <div class="form-group">
+              <label for="idEdit" class="col-form-label">id:</label>
+              <input type="text" class="form-control" id="idEdit" name="id" readonly>
+            </div>
+            <div class="form-group">
+              <label for="descriptionEdit" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="descriptionEdit" name="description">
+            </div>
+
+            <div class="form-group">
+              <label for="detailsEdit" class="col-form-label">Details:</label>
+              <input type="text" class="form-control" id="detailsEdit" name="details">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit Modal-->
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Employee Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/employeeTypes/addNew}" method="post">
+
+            <div class="form-group">
+              <label for="descriptionAdd" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="descriptionAdd" name="description">
+            </div>
+
+            <div class="form-group">
+              <label for="detailsAdd" class="col-form-label">Details:</label>
+              <input type="text" class="form-control" id="detailsAdd" name="details">
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Add Modal-->
+
+  <!-- Details Modal -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Employee Type Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label for="idDetail" class="col-form-label">id:</label>
+              <input type="text" class="form-control" id="idDetail" name="id" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="descriptionDetail" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="detailsDetail" class="col-form-label">Details:</label>
+              <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label">Last Updated By:</label>
+              <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label">Last Updated On:</label>
+              <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Details Modal-->
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this record?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Delete Modal-->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -486,6 +653,8 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="assets/js/employeeType.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
