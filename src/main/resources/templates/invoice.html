@@ -450,14 +450,40 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-      <div class="row">
-        <h1> List of invoices </h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+      New Invoice
+    </button>
 
-
-        </div>
-      </div>
-    </section>
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Invoice Date</th>
+        <th>Invoice Status</th>
+        <th>Client</th>
+        <th>Remarks</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="invoice:${invoices}">
+        <td th:text="${invoice.id}"></td>
+        <td th:text="${invoice.invoiceDate}"></td>
+        <td th:text="${invoice.invoiceStatus.description}"></td>
+        <td th:text="${invoice.client.name}"></td>
+        <td th:text="${invoice.remarks}"></td>
+        <td>
+          <div class="btn-group">
+            <a th:href="@{/invoices/findById/(id=${invoice.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+            <a th:href="@{/invoices/findById/(id=${invoice.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+            <a th:href="@{/invoices/delete/(id=${invoice.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
 
   </main><!-- End #main -->
 
@@ -477,6 +503,259 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Invoice</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/invoices/update}" method="put">
+
+            <div class="form-group">
+              <label for="idEdit" class="col-form-label">Id: </label>
+              <input type="text" class="form-control" id="idEdit" name="id">
+            </div>
+            <div class="form-group">
+              <label for="nameEdit" class="col-form-label">Name: </label>
+              <input type="text" class="form-control" id="nameEdit" name="name">
+            </div>
+            <div class="form-group">
+              <label for="phoneEdit" class="col-form-label">Phone:</label>
+              <input type="text" class="form-control" id="phoneEdit" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="emailEdit" class="col-form-label">Email:</label>
+              <input type="email" class="form-control" id="emailEdit" name="email">
+            </div>
+
+            <div class="form-group">
+              <label for="addressEdit" class="col-form-label">Address:</label>
+              <input type="text" class="form-control" id="addressEdit" name="address">
+            </div>
+            <div class="form-group">
+              <label for="cityEdit" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="cityEdit" name="city">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlStateEdit" class="col-form-label">State: </label>
+              <select class="form-control" id="ddlStateEdit" name="stateid">
+                <option>-SELECT-</option>
+                <option th:each="state : ${states}"
+                        th:value="${state.id}"
+                        th:text="${state.name}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ddlCountryEdit" class="col-form-label">Country: </label>
+              <select class="form-control" id="ddlCountryEdit" name="countryid">
+                <option>-SELECT-</option>
+                <option th:each="country : ${countries}"
+                        th:value="${country.id}"
+                        th:text="${country.description}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="websiteEdit" class="col-form-label">Website:</label>
+              <input type="text" class="form-control" id="websiteEdit" name="website">
+            </div>
+
+            <div class="form-group">
+              <label for="detailsEdit" class="col-form-label">Details:</label>
+              <input type="text" class="form-control" id="detailsEdit" name="details">
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit Modal-->
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Invoice</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form th:action="@{/invoices/addNew}" method="post">
+
+            <div class="form-group">
+              <label for="invoiceDateAdd" class="col-form-label">Invoice Date: </label>
+              <input type="date" class="form-control" id="invoiceDateAdd" name="invoiceDate">
+            </div>
+
+            <div class="form-group">
+              <label for="ddlinvoiceStatusAdd" class="col-form-label">Invoice Status: </label>
+              <select class="form-control" id="ddlinvoiceStatusAdd" name="invoiceStatusid">
+                <option>-SELECT-</option>
+                <option th:each="invoiceStatus : ${invoiceStatuses}"
+                        th:value="${invoiceStatus.id}"
+                        th:text="${invoiceStatus.description}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ddlClientAdd" class="col-form-label">Client: </label>
+              <select class="form-control" id="ddlClientAdd" name="clientid">
+                <option>-SELECT-</option>
+                <option th:each="client : ${clients}"
+                        th:value="${client.id}"
+                        th:text="${client.name}">
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="remarksAdd" class="col-form-label">Remarks:</label>
+              <input type="text" class="form-control" id="remarksAdd" name="remarks">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Add Modal-->
+
+  <!-- Details Modal -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Invoice Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="idDetail" class="col-form-label">Id: </label>
+            <input type="text" class="form-control" id="idDetail" name="Id" readonly>
+          </div>
+          <div class="form-group">
+            <label for="nameDetail" class="col-form-label">Name: </label>
+            <input type="text" class="form-control" id="nameDetail" name="name" readonly>
+          </div>
+          <div class="form-group">
+            <label for="phoneDetail" class="col-form-label">Phone:</label>
+            <input type="text" class="form-control" id="phoneDetail" name="phone" readonly>
+          </div>
+          <div class="form-group">
+            <label for="emailDetail" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="emailDetail" name="email" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="addressDetail" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" id="addressDetail" name="address" readonly>
+          </div>
+          <div class="form-group">
+            <label for="cityDetail" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="cityDetail" name="city" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="ddlStateDetail" class="col-form-label">State: </label>
+            <select class="form-control" id="ddlStateDetail" name="stateid" disabled>
+              <option>-SELECT-</option>
+              <option th:each="state : ${states}"
+                      th:value="${state.id}"
+                      th:text="${state.name}">
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ddlCountryDetail" class="col-form-label">Country: </label>
+            <select class="form-control" id="ddlCountryDetail" name="countryid" disabled>
+              <option>-SELECT-</option>
+              <option th:each="country : ${countries}"
+                      th:value="${country.id}"
+                      th:text="${country.description}">
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="websiteDetail" class="col-form-label">Website:</label>
+            <input type="text" class="form-control" id="websiteDetail" name="website" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="detailsDetail" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
+          </div>
+
+          <div class="form-group">
+            <label class="col-form-label">Last Updated By:</label>
+            <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+          </div>
+
+          <div class="form-group">
+            <label class="col-form-label">Last Updated On:</label>
+            <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+          </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Details Modal-->
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this record?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Delete Modal-->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -486,6 +765,8 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="assets/js/invoice.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

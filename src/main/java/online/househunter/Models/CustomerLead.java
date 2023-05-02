@@ -6,10 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -17,7 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Lead {
+public class CustomerLead {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +27,9 @@ public class Lead {
     private String remarks;
     private String email;
     private String notes;
-    private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "customerleadstatusid", insertable = false, updatable = false)
+    private CustomerLeadStatus customerLeadStatus;
+    private Long customerleadstatusid;
 }

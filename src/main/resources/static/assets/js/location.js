@@ -38,8 +38,8 @@ $(document).ready(function(){
                 $('#ddlStateDetail').val(location.stateid);
                 $('#zipcodeDetail').val(location.zipcode);
                 $('#ddlCountryDetail').val(location.countryid);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(location.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(location.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

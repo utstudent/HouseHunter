@@ -44,9 +44,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/house-hunter-website-favicon-color.png" alt="">
+        <span class="d-none d-lg-block">House Hunter</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -440,12 +440,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Blank Page</h1>
+      <h1>States</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
           <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Blank</li>
+          <li class="breadcrumb-item active">States</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -472,7 +472,7 @@
         <td th:text="${state.id}"></td>
         <td th:text="${state.name}"></td>
         <td th:text="${state.capital}"></td>
-        <td th:text="${state.countryid}"></td>
+        <td th:text="${state.country.description}"></td>
         <td>
           <div class="btn-group">
             <a th:href="@{/states/findById/(id=${state.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
