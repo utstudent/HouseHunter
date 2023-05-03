@@ -6,10 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,8 +21,21 @@ public class Contact {
 
     private String firstName;
     private String lastName;
+    private String address;
+    private String city;
     private String phone;
-    private String mobile;
-    private String remarks;
+    private String website;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "countryid", insertable = false, updatable = false)
+    private Country country;
+    private Long countryid;
+
+    @ManyToOne
+    @JoinColumn(name = "stateid", insertable = false, updatable = false)
+    private State state;
+    private Long stateid;
+
+    private String details;
 }

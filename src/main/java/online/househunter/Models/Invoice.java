@@ -21,8 +21,15 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date invoiceDate;
+
+    private float amountPayable;
+
+    //    @Column(columnDefinition = "integer default 30")
+//    @Column(name="payment_terms", columnDefinition="Decimal(10,2) default '100.00'")
+//    @ColumnDefault("30")
+    private Integer paymentTerms;
 
     @ManyToOne
     @JoinColumn(name = "invoicestatusid", insertable = false, updatable = false)

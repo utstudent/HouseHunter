@@ -18,26 +18,23 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
+    private String foreName;
     private String lastName;
     private String otherName;
 
-    @Formula(value = " concat(firstName, ' ', lastName) ")
+    @Formula(value = " concat(foreName, ' ', lastName) ")
     private String fullName;
 
     private String title;
-    private String initials;
     private String socialSecurityNumber;
     private String gender;
-    private String maritalStatus;
 
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     private String address;
     private String city;
     private String phone;
-    private String mobile;
     private String email;
     private String photo;
 

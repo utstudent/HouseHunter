@@ -16,12 +16,9 @@ import java.util.Optional;
 
 @Controller
 public class InvoiceController {
-    @Autowired
-    private InvoiceService invoiceService;
-
+    @Autowired private InvoiceService invoiceService;
     @Autowired private InvoiceStatusService invoiceStatusService;
-    @Autowired
-    private ClientService clientService;
+    @Autowired private ClientService clientService;
 
     @GetMapping("/invoices")
     public String goInvoices(Model model){

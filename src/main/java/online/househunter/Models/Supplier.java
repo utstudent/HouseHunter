@@ -23,7 +23,6 @@ public class Supplier {
     private String address;
     private String city;
     private String phone;
-    private String mobile;
     private String website;
     private String email;
 

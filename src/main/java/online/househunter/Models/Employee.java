@@ -14,7 +14,7 @@ import java.util.Date;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id") //might need to take out
 public class Employee extends Person{
 
     @ManyToOne
@@ -29,7 +29,7 @@ public class Employee extends Person{
     private JobTitle jobTitle;
     private Long jobtitleid;
 
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date hireDate;
 
 }

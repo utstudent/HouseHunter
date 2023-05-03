@@ -5,16 +5,18 @@ $(document).ready(function(){
         event.preventDefault();
 
         var href =$(this).attr('href');
-        console.log({href})
 
         $.get(href, function(invoice, status){
-        console.log({invoice})
             $('#idEdit').val(invoice.id);
-            $('#descriptionEdit').val(invoice.description);
-            $('#capitalEdit').val(invoice.capital);
-            $('#codeEdit').val(invoice.code);
-            $('#continentEdit').val(invoice.continent);
-            $('#nationalityEdit').val(invoice.nationality);
+
+            var invoiceDate = invoice.invoiceDate.substr(0,10);
+            $('#invoiceDateEdit').val(invoiceDate);
+
+            $('#paymentTermsEdit').val(invoice.paymentTerms);
+            $('#amountPayableEdit').val(invoice.amountPayable);
+            $('#ddlInvoiceStatusEdit').val(invoice.invoicestatusid);
+            $('#ddlClientEdit').val(invoice.clientid);
+            $('#remarksEdit').val(invoice.remarks);
         });
 
         $('#editModal').modal();
@@ -33,15 +35,18 @@ $(document).ready(function(){
         var href =$(this).attr('href');
 
         $.get(href, function(invoice, status){
-        $('#idDetail').val(invoice.id);
-        $('#descriptionDetail').val(invoice.description);
-        $('#capitalDetail').val(invoice.capital);
-        $('#codeDetail').val(invoice.code);
-        $('#continentDetail').val(invoice.continent);
-        $('#nationalityDetail').val(invoice.nationality);
-        $('#lastModifiedByDetails').val(invoice.lastModifiedBy);
-        $('#lastModifiedDateDetails').val(invoice.lastModifiedDate.substr(0,19).replace("T", " "));
+            $('#idDetail').val(invoice.id);
 
+            var invoiceDate = invoice.invoiceDate.substr(0,10);
+            $('#invoiceDateDetail').val(invoiceDate);
+
+            $('#paymentTermsDetail').val(invoice.paymentTerms);
+            $('#amountPayableDetail').val(invoice.amountPayable);
+            $('#ddlinvoiceStatusDetail').val(invoice.invoicestatusid);
+            $('#ddlClientDetail').val(invoice.clientid);
+            $('#remarksDetail').val(invoice.remarks);
+            $('#lastModifiedByDetails').val(invoice.lastModifiedBy);
+            $('#lastModifiedDateDetails').val(invoice.lastModifiedDate.substr(0,19).replace("T", " "));
         });
 
         $('#detailsModal').modal();

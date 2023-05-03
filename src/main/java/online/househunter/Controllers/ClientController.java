@@ -1,11 +1,7 @@
 package online.househunter.Controllers;
 
-import online.househunter.Models.Country;
-import online.househunter.Models.Client;
-import online.househunter.Models.State;
-import online.househunter.Services.CountryService;
-import online.househunter.Services.ClientService;
-import online.househunter.Services.StateService;
+import online.househunter.Models.*;
+import online.househunter.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +16,6 @@ public class ClientController {
     private ClientService clientService;
     @Autowired
     private CountryService countryService;
-
     @Autowired private StateService stateService;
 
     @GetMapping("/clients")

@@ -52,9 +52,11 @@ public class House {
     private int sqrft;
     private int bedroom;
     private int bathroom;
+    private int stories;
     private int price;
-    private String yearBuilt;
-
-
+    private int yearBuilt;
+    private boolean hasGarage;
+    private boolean hasPool;
+    private boolean hasFireplace;
 
 }

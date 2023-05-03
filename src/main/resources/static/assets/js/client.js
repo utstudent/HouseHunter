@@ -44,7 +44,7 @@ $(document).ready(function(){
                 $('#cityDetail').val(client.city);
                 $('#ddlStateDetail').val(client.stateid);
                 $('#ddlCountryDetail').val(client.countryid);
-                $('#websiteetail').val(client.website);
+                $('#websiteDetail').val(client.website);
                 $('#detailsDetail').val(client.details);
                 $('#lastModifiedByDetails').val(client.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(client.lastModifiedDate.substr(0,19).replace("T", " "));
