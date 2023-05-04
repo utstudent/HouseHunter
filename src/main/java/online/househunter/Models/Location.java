@@ -35,4 +35,7 @@ public class Location {
     private String city;
     private String zipcode;
 
+//    @Formula(value = " concat(address, ' ', city, ' ', state, ' ', zipcode) ")
+//    private String fullAddress;
+
 }

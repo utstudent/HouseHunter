@@ -40,455 +40,1020 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+  <div class="d-flex align-items-center justify-content-between">
+    <a th:href="@{/index}" class="logo d-flex align-items-center">
+      <img src="assets/img/house-hunter-website-favicon-color.png" alt="">
+      <span class="d-none d-lg-block">House Hunter</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center" method="POST" action="#">
+      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div><!-- End Search Bar -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
+      <li class="nav-item d-block d-lg-none">
+        <a class="nav-link nav-icon search-bar-toggle " href="#">
+          <i class="bi bi-search"></i>
+        </a>
+      </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+          <i class="bi bi-bell"></i>
+          <span class="badge bg-primary badge-number">4</span>
+        </a><!-- End Notification Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+          <li class="dropdown-header">
+            You have 4 new notifications
+            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
+          <li class="notification-item">
+            <i class="bi bi-exclamation-circle text-warning"></i>
+            <div>
+              <h4>Lorem Ipsum</h4>
+              <p>Quae dolorem earum veritatis oditseno</p>
+              <p>30 min. ago</p>
+            </div>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="notification-item">
+            <i class="bi bi-x-circle text-danger"></i>
+            <div>
+              <h4>Atque rerum nesciunt</h4>
+              <p>Quae dolorem earum veritatis oditseno</p>
+              <p>1 hr. ago</p>
+            </div>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="notification-item">
+            <i class="bi bi-check-circle text-success"></i>
+            <div>
+              <h4>Sit rerum fuga</h4>
+              <p>Quae dolorem earum veritatis oditseno</p>
+              <p>2 hrs. ago</p>
+            </div>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="notification-item">
+            <i class="bi bi-info-circle text-primary"></i>
+            <div>
+              <h4>Dicta reprehenderit</h4>
+              <p>Quae dolorem earum veritatis oditseno</p>
+              <p>4 hrs. ago</p>
+            </div>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="dropdown-footer">
+            <a href="#">Show all notifications</a>
+          </li>
+
+        </ul><!-- End Notification Dropdown Items -->
+
+      </li><!-- End Notification Nav -->
+
+      <li class="nav-item dropdown">
+
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+          <i class="bi bi-chat-left-text"></i>
+          <span class="badge bg-success badge-number">3</span>
+        </a><!-- End Messages Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+          <li class="dropdown-header">
+            You have 3 new messages
+            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
               <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
+                <h4>Maria Hudson</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
                 <p>4 hrs. ago</p>
               </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " th:href="@{/index}">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-houses"></i><span>Houses</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a th:href="@{/houses}">
-              <i class="bi bi-circle"></i><span>House Data</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/houseTypes}">
-              <i class="bi bi-circle"></i><span>House Type</span>
-            </a>
+            <hr class="dropdown-divider">
           </li>
-          <li>
-            <a th:href="@{/houseStatuses}">
-              <i class="bi bi-circle"></i><span>House Status</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>People</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a th:href="@{/employees}">
-              <i class="bi bi-circle"></i><span>Employees</span>
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+              <div>
+                <h4>Anna Nelson</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>6 hrs. ago</p>
+              </div>
             </a>
           </li>
           <li>
-            <a th:href="@{/clients}">
-              <i class="bi bi-circle"></i><span>Clients</span>
-            </a>
+            <hr class="dropdown-divider">
           </li>
-          <li>
-            <a th:href="@{/suppliers}">
-              <i class="bi bi-circle"></i><span>Suppliers</span>
-            </a>
-          </li>
-          <li>
-            <a th:href="@{/contacts}">
-              <i class="bi bi-circle"></i><span>Contacts</span>
-            </a>
-          </li>
-          <li>
-            <a th:href="@{/users}">
-              <i class="bi bi-circle"></i><span>Users</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person-gear"></i><span>HR Settings</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a th:href="@{/jobTitles}">
-              <i class="bi bi-circle"></i><span>Job Titles</span>
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+              <div>
+                <h4>David Muldon</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>8 hrs. ago</p>
+              </div>
             </a>
           </li>
           <li>
-            <a th:href="@{/employeeTypes}">
-              <i class="bi bi-circle"></i><span>Employee Types</span>
-            </a>
+            <hr class="dropdown-divider">
           </li>
-        </ul>
-      </li><!-- End Tables Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-receipt"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a th:href="@{/invoices}">
-              <i class="bi bi-circle"></i><span>Invoices</span>
-            </a>
+          <li class="dropdown-footer">
+            <a href="#">Show all messages</a>
           </li>
-          <li>
-            <a th:href="@{/invoiceStatuses}">
-              <i class="bi bi-circle"></i><span>Invoice Status Values</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-globe"></i><span>Globals</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        </ul><!-- End Messages Dropdown Items -->
+
+      </li><!-- End Messages Nav -->
+
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>Kevin Anderson</h6>
+            <span>Web Designer</span>
+          </li>
           <li>
-            <a th:href="@{/countries}">
-              <i class="bi bi-circle"></i><span>Countries</span>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <i class="bi bi-person"></i>
+              <span>My Profile</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/states}">
-              <i class="bi bi-circle"></i><span>States</span>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <i class="bi bi-gear"></i>
+              <span>Account Settings</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/locations}">
-              <i class="bi bi-circle"></i><span>Locations</span>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <i class="bi bi-question-circle"></i>
+              <span>Need Help?</span>
             </a>
           </li>
-        </ul>
-      </li><!-- End Icons Nav -->
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-      <li class="nav-heading">Pages</li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
+        </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
 
     </ul>
+  </nav><!-- End Icons Navigation -->
 
-  </aside><!-- End Sidebar-->
+</header><!-- End Header -->
 
-  <main id="main" class="main">
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
 
-    <div class="pagetitle">
-      <h1>Blank Page</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Blank</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-    <section class="section">
-      <div class="row">
-        <h1> List of houses </h1>
+    <li class="nav-item">
+      <a class="nav-link " th:href="@{/index}">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-houses"></i><span>Houses</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a th:href="@{/houses}">
+            <i class="bi bi-circle"></i><span>House Data</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/houseTypes}">
+            <i class="bi bi-circle"></i><span>House Type</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/houseStatuses}">
+            <i class="bi bi-circle"></i><span>House Status</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Components Nav -->
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-people"></i><span>People</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a th:href="@{/employees}">
+            <i class="bi bi-circle"></i><span>Employees</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/clients}">
+            <i class="bi bi-circle"></i><span>Clients</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/suppliers}">
+            <i class="bi bi-circle"></i><span>Suppliers</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/contacts}">
+            <i class="bi bi-circle"></i><span>Contacts</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/users}">
+            <i class="bi bi-circle"></i><span>Users</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Forms Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-gear"></i><span>HR Settings</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a th:href="@{/jobTitles}">
+            <i class="bi bi-circle"></i><span>Job Titles</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/employeeTypes}">
+            <i class="bi bi-circle"></i><span>Employee Types</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Tables Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-receipt"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a th:href="@{/invoices}">
+            <i class="bi bi-circle"></i><span>Invoices</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/invoiceStatuses}">
+            <i class="bi bi-circle"></i><span>Invoice Status Values</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Charts Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-globe"></i><span>Globals</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a th:href="@{/countries}">
+            <i class="bi bi-circle"></i><span>Countries</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/states}">
+            <i class="bi bi-circle"></i><span>States</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/locations}">
+            <i class="bi bi-circle"></i><span>Locations</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Icons Nav -->
+
+    <li class="nav-heading">Pages</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="users-profile.html">
+        <i class="bi bi-person"></i>
+        <span>Profile</span>
+      </a>
+    </li><!-- End Profile Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="pages-faq.html">
+        <i class="bi bi-question-circle"></i>
+        <span>F.A.Q</span>
+      </a>
+    </li><!-- End F.A.Q Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="pages-contact.html">
+        <i class="bi bi-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </li><!-- End Contact Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="pages-register.html">
+        <i class="bi bi-card-list"></i>
+        <span>Register</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="pages-login.html">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Login</span>
+      </a>
+    </li><!-- End Login Page Nav -->
+
+  </ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Houses</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
+        <li class="breadcrumb-item">Pages</li>
+        <li class="breadcrumb-item active">Houses</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+    New House
+  </button>
+
+  <!-- Table with stripped rows -->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>House Type</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
+      <th>Sqft</th>
+      <th>Location</th>
+      <th>Market Entry Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="house:${houses}">
+      <td>
+        <a id="photoButton" th:href="@{'assets/img/house photos/' + ${house.id} +'.jpg'}" data-bs-toggle="modal" data-bs-target="#photoModal">
+          <img th:src="@{'assets/img/house photos/' + ${house.id} +'.jpg'}" width="40" height="40">
+        </a>
+      </td>
+      <td th:text="${house.price}"></td>
+      <td th:text="${house.houseStatus.description}"></td>
+      <td th:text="${house.houseType.description}"></td>
+      <td th:text="${house.bedrooms}"></td>
+      <td th:text="${house.bathrooms}"></td>
+      <td th:text="${house.sqft}"></td>
+      <td th:text="${house.location.address}"></td>
+      <td th:text="${#dates.format(house.marketEntryDate, 'MM/dd/yyyy')}"></td>
+      <td>
+        <div class="btn-group">
+          <a th:href="@{/houses/findById/(id=${house.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+          <a th:href="@{/houses/findById/(id=${house.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+          <a th:href="@{/houses/delete/(id=${house.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
         </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- End Table with stripped rows -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>House Hunter</span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+    Designed by <a href="">KaranDevs</a>
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update House</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </section>
+      <div class="modal-body">
 
-  </main><!-- End #main -->
+        <form th:action="@{/houses/update}" method="put">
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+          <table width="100%">
+            <tr>
+              <td width="50%">
+
+                <div class="form-group">
+                  <label for="idEdit" class="col-form-label">Id: </label>
+                  <input type="text" class="form-control" id="idEdit" name="id" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="priceEdit" class="col-form-label">Price: </label>
+                  <input type="number" class="form-control" id="priceEdit" name="price">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHouseStatusEdit" class="col-sm-4 col-form-label">House Status:</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHouseStatusEdit" name="housestatusid" >
+                      <option>-SELECT-</option>
+                      <option th:each="houseStatus : ${houseStatuses}"
+                              th:value="${houseStatus.id}"
+                              th:text="${houseStatus.description}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHouseTypeEdit" class="col-form-label">House Type: </label>
+                  <select class="form-control" id="ddlHouseTypeEdit" name="housetypeid">
+                    <option>-SELECT-</option>
+                    <option th:each="houseType : ${houseTypes}"
+                            th:value="${houseType.id}"
+                            th:text="${houseType.description}">
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="bedroomsEdit" class="col-form-label">Bedrooms: </label>
+                  <input type="number" class="form-control" id="bedroomsEdit" name="bedrooms">
+                </div>
+
+                <div class="form-group">
+                  <label for="bathroomsEdit" class="col-form-label">Bathrooms: </label>
+                  <input type="number" class="form-control" id="bathroomsEdit" name="bathrooms">
+                </div>
+
+                <div class="form-group">
+                  <label for="storiesEdit" class="col-form-label">Stories: </label>
+                  <input type="number" class="form-control" id="storiesEdit" name="stories">
+                </div>
+
+                <div class="form-group">
+                  <label for="yearBuiltEdit" class="col-form-label">Year Built: </label>
+                  <input type="number" class="form-control" id="yearBuiltEdit" name="yearBuilt">
+                </div>
+
+              </td>
+              <td width="50%" style="padding-left:10px">
+
+                <div class="form-group">
+                  <label for="sqftEdit" class="col-form-label">Sqft: </label>
+                  <input type="number" class="form-control" id="sqftEdit" name="sqft">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlLocationEdit" class="col-form-label">Location: </label>
+                  <select class="form-control" id="ddlLocationEdit" name="locationid">
+                    <option>-SELECT-</option>
+                    <option th:each="location : ${locations}"
+                            th:value="${location.id}"
+                            th:text="${location.address}">
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="marketEntryDateEdit" class="col-form-label">Market Entry Date: </label>
+                  <input type="date" class="form-control" id="marketEntryDateEdit" name="marketEntryDate">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlEmployeeEdit" class="col-sm-4 col-form-label">Employee in Charge:</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlEmployeeEdit" name="employeeid" >
+                      <option>-SELECT-</option>
+                      <option th:each="employee : ${employees}"
+                              th:value="${employee.id}"
+                              th:text="${employee.fullName}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="descriptionEdit" class="col-form-label">Description: </label>
+                  <input type="text" class="form-control" id="descriptionEdit" name="description">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasPoolEdit" class="col-sm-4 col-form-label">Pool?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasPoolEdit" name="hasPool">
+                      <option>-SELECT-</option>
+                      <option value=true>Yes</option>
+                      <option value=false>No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasFireplaceEdit" class="col-sm-4 col-form-label">Fireplace?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasFireplaceEdit" name="hasFireplace">
+                      <option>-SELECT-</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasGarageEdit" class="col-sm-4 col-form-label">Garage?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasGarageEdit" name="hasGarage">
+                      <option>-SELECT-</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+          </table>
+
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+</div>
+<!-- End Edit Modal-->
+
+<!-- Add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New House</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form th:action="@{/houses/addNew}" method="post">
+
+          <table width="100%">
+            <tr>
+              <td width="50%">
+
+                <div class="form-group">
+                  <label for="priceAdd" class="col-form-label">Price: </label>
+                  <input type="number" class="form-control" id="priceAdd" name="price" placeholder="Price">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHouseStatusAdd" class="col-sm-4 col-form-label">House Status:</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHouseStatusAdd" name="housestatusid" >
+                      <option>-SELECT-</option>
+                      <option th:each="houseStatus : ${houseStatuses}"
+                              th:value="${houseStatus.id}"
+                              th:text="${houseStatus.description}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHouseTypeAdd" class="col-form-label">House Type: </label>
+                  <select class="form-control" id="ddlHouseTypeAdd" name="housetypeid">
+                    <option>-SELECT-</option>
+                    <option th:each="houseType : ${houseTypes}"
+                            th:value="${houseType.id}"
+                            th:text="${houseType.description}">
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="bedroomsAdd" class="col-form-label">Bedrooms: </label>
+                  <input type="number" class="form-control" id="bedroomsAdd" name="bedrooms" placeholder="Bedrooms">
+                </div>
+
+                <div class="form-group">
+                  <label for="bathroomsAdd" class="col-form-label">Bathrooms: </label>
+                  <input type="number" class="form-control" id="bathroomsAdd" name="bathrooms" placeholder="Bathrooms">
+                </div>
+
+                <div class="form-group">
+                  <label for="storiesAdd" class="col-form-label">Stories: </label>
+                  <input type="number" class="form-control" id="storiesAdd" name="stories" placeholder="Stories">
+                </div>
+
+                <div class="form-group">
+                  <label for="yearBuiltAdd" class="col-form-label">Year Built: </label>
+                  <input type="number" class="form-control" id="yearBuiltAdd" name="yearBuilt" placeholder="Year Built">
+                </div>
+
+              </td>
+              <td width="50%" style="padding-left:10px">
+
+                <div class="form-group">
+                  <label for="sqftAdd" class="col-form-label">Sqft: </label>
+                  <input type="number" class="form-control" id="sqftAdd" name="sqft" placeholder="Sqft">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlLocationAdd" class="col-form-label">Location: </label>
+                  <select class="form-control" id="ddlLocationAdd" name="locationid">
+                    <option>-SELECT-</option>
+                    <option th:each="location : ${locations}"
+                            th:value="${location.id}"
+                            th:text="${location.address}">
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="marketEntryDateAdd" class="col-form-label">Market Entry Date: </label>
+                  <input type="date" class="form-control" id="marketEntryDateAdd" name="marketEntryDate" placeholder="Market Entry Date">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlEmployeeAdd" class="col-sm-4 col-form-label">Employee in Charge:</label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlEmployeeAdd" name="employeeid" >
+                      <option>-SELECT-</option>
+                      <option th:each="employee : ${employees}"
+                              th:value="${employee.id}"
+                              th:text="${employee.fullName}">
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="descriptionAdd" class="col-form-label">Description: </label>
+                  <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Description">
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasPoolAdd" class="col-sm-4 col-form-label">Pool?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasPoolAdd" name="hasPool">
+                      <option>-SELECT-</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasFireplaceAdd" class="col-sm-4 col-form-label">Fireplace?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasFireplaceAdd" name="hasFireplace">
+                      <option>-SELECT-</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ddlHasGarageAdd" class="col-sm-4 col-form-label">Garage?: </label>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlHasGarageAdd" name="hasGarage">
+                      <option>-SELECT-</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+          </table>
+
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
-  </footer><!-- End Footer -->
+  </div>
+</div>
+<!-- End Add Modal-->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">House Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+        <table width="100%">
+          <tr>
+            <td width="50%">
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+              <div class="form-group">
+                <label for="idDetail" class="col-form-label">Id: </label>
+                <input type="text" class="form-control" id="idDetail" name="id" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlTitleDetail" class="col-sm-4 col-form-label">Title: </label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlTitleDetail" name="title" disabled>
+                    <option>-SELECT-</option>
+                    <option value="MALE">Mr.</option>
+                    <option value="FEMALE">Ms.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="firstNameDetail" class="col-form-label">First Name: </label>
+                <input type="text" class="form-control" id="firstNameDetail" name="firstname" readonly>
+              </div>
+              <div class="form-group">
+                <label for="otherNameDetail" class="col-form-label">Other Name:</label>
+                <input type="text" class="form-control" id="otherNameDetail" name="otherName" readonly>
+              </div>
+              <div class="form-group">
+                <label for="lastNameDetail" class="col-form-label">Last Name: </label>
+                <input type="text" class="form-control" id="lastNameDetail" name="lastname" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlGenderDetail" class="col-sm-4 col-form-label">Gender: </label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlGenderDetail" name="gender" disabled>
+                    <option>-SELECT-</option>
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dateOfBirthDetail" class="col-form-label">Date of Birth: </label>
+                <input type="date" class="form-control" id="dateOfBirthDetail" name="dateOfBirth" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="phoneDetail" class="col-form-label">Phone:</label>
+                <input type="tel" class="form-control" id="phoneDetail" name="phone" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="emailDetail" class="col-form-label">Email:</label>
+                <input type="email" class="form-control" id="emailDetail" name="email" readonly>
+              </div>
+
+            </td>
+            <td width="50%" style="padding-left:10px">
+
+              <div class="form-group">
+                <label for="ddlJobTitleDetail" class="col-sm-4 col-form-label">Job Title:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlJobTitleDetail" name="jobtitleid" disabled>
+                    <option>-SELECT-</option>
+                    <option th:each="jobTitle : ${jobTitles}"
+                            th:value="${jobTitle.id}"
+                            th:text="${jobTitle.description}">
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlHouseTypeDetail" class="col-form-label">House Type: </label>
+                <select class="form-control" id="ddlHouseTypeDetail" name="housetypeid" disabled>
+                  <option>-SELECT-</option>
+                  <option th:each="houseType : ${houseTypes}"
+                          th:value="${houseType.id}"
+                          th:text="${houseType.description}">
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="hireDateDetail" class="col-form-label">Hire Date: </label>
+                <input type="date" class="form-control" id="hireDateDetail" name="hireDate" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="addressDetail" class="col-form-label">Address:</label>
+                <input type="text" class="form-control" id="addressDetail" name="address" readonly>
+              </div>
+              <div class="form-group">
+                <label for="cityDetail" class="col-form-label">City:</label>
+                <input type="text" class="form-control" id="cityDetail" name="city" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlStateDetail" class="col-form-label">State: </label>
+                <select class="form-control" id="ddlStateDetail" name="stateid" disabled>
+                  <option>-SELECT-</option>
+                  <option th:each="state : ${states}"
+                          th:value="${state.id}"
+                          th:text="${state.name}">
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlCountryDetail" class="col-form-label">Country: </label>
+                <select class="form-control" id="ddlCountryDetail" name="countryid" disabled>
+                  <option>-SELECT-</option>
+                  <option th:each="country : ${countries}"
+                          th:value="${country.id}"
+                          th:text="${country.description}">
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="socialSecurityNumberDetail" class="col-form-label">Social Security Number:</label>
+                <input type="text" class="form-control" id="socialSecurityNumberDetail" name="socialSecurityNumber" readonly>
+              </div>
+
+              <div class="form-group">
+                <label class="col-form-label">Last Updated By:</label>
+                <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+              </div>
+
+              <div class="form-group">
+                <label class="col-form-label">Last Updated On:</label>
+                <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+              </div>
+
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Details Modal-->
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this record?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Delete Modal-->
+
+<!-- Photo Modal -->
+<div class="modal fade" id="photoModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">House Photo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="housePhoto" src="" width="95%" height="95%">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Photo Modal-->
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="assets/js/house.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
 
 </body>
 

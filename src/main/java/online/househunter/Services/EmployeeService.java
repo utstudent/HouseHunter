@@ -42,9 +42,9 @@ public class EmployeeService {
     public void assignUsername(Long id){
         Employee employee = employeeRepository.findById(id).orElse(null);
         try {
-            User user = userRepository.findByForeNameAndLastName(
-                    employee.getForeName(),
-                    employee.getLastName());
+            User user = userRepository.findByFirstnameAndLastname(
+                    employee.getFirstname(),
+                    employee.getLastname());
             System.out.println(user);
             employee.setUsername(user.getUsername());
             employeeRepository.save(employee);

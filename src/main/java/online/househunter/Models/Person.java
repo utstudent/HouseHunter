@@ -18,11 +18,11 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String foreName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String otherName;
 
-    @Formula(value = " concat(foreName, ' ', lastName) ")
+    @Formula(value = " concat(firstname, ' ', lastname) ")
     private String fullName;
 
     private String title;

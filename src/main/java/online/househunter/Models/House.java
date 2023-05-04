@@ -1,7 +1,5 @@
 package online.househunter.Models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +12,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class House {
 
     @Id
@@ -28,9 +25,7 @@ public class House {
     private HouseType houseType;
     private Long housetypeid;
 
-    private String houseNumber;
-
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date marketEntryDate;
 
     @ManyToOne
@@ -49,14 +44,13 @@ public class House {
     private Long locationid;
 
     private String description;
-    private int sqrft;
-    private int bedroom;
-    private int bathroom;
+    private int sqft;
+    private int bedrooms;
+    private int bathrooms;
     private int stories;
     private int price;
     private int yearBuilt;
     private boolean hasGarage;
     private boolean hasPool;
     private boolean hasFireplace;
-
 }
