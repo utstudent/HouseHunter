@@ -631,8 +631,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasPoolEdit" name="hasPool">
                       <option>-SELECT-</option>
-                      <option value=true>Yes</option>
-                      <option value=false>No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -642,8 +642,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasFireplaceEdit" name="hasFireplace">
                       <option>-SELECT-</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -653,8 +653,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasGarageEdit" name="hasGarage">
                       <option>-SELECT-</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -792,8 +792,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasPoolAdd" name="hasPool">
                       <option>-SELECT-</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -803,8 +803,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasFireplaceAdd" name="hasFireplace">
                       <option>-SELECT-</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -814,8 +814,8 @@
                   <div class="col-sm-6">
                     <select class="form-control" id="ddlHasGarageAdd" name="hasGarage">
                       <option>-SELECT-</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
                     </select>
                   </div>
                 </div>
@@ -854,73 +854,23 @@
         <table width="100%">
           <tr>
             <td width="50%">
-
               <div class="form-group">
                 <label for="idDetail" class="col-form-label">Id: </label>
                 <input type="text" class="form-control" id="idDetail" name="id" readonly>
               </div>
+              <div class="form-group">
+                <label for="priceDetail" class="col-form-label">Price: </label>
+                <input type="number" class="form-control" id="priceDetail" name="price" readonly>
+              </div>
 
               <div class="form-group">
-                <label for="ddlTitleDetail" class="col-sm-4 col-form-label">Title: </label>
+                <label for="ddlHouseStatusDetail" class="col-sm-4 col-form-label">House Status:</label>
                 <div class="col-sm-6">
-                  <select class="form-control" id="ddlTitleDetail" name="title" disabled>
+                  <select class="form-control" id="ddlHouseStatusDetail" name="housestatusid" disabled>
                     <option>-SELECT-</option>
-                    <option value="MALE">Mr.</option>
-                    <option value="FEMALE">Ms.</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="firstNameDetail" class="col-form-label">First Name: </label>
-                <input type="text" class="form-control" id="firstNameDetail" name="firstname" readonly>
-              </div>
-              <div class="form-group">
-                <label for="otherNameDetail" class="col-form-label">Other Name:</label>
-                <input type="text" class="form-control" id="otherNameDetail" name="otherName" readonly>
-              </div>
-              <div class="form-group">
-                <label for="lastNameDetail" class="col-form-label">Last Name: </label>
-                <input type="text" class="form-control" id="lastNameDetail" name="lastname" readonly>
-              </div>
-
-              <div class="form-group">
-                <label for="ddlGenderDetail" class="col-sm-4 col-form-label">Gender: </label>
-                <div class="col-sm-6">
-                  <select class="form-control" id="ddlGenderDetail" name="gender" disabled>
-                    <option>-SELECT-</option>
-                    <option value="MALE">MALE</option>
-                    <option value="FEMALE">FEMALE</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="dateOfBirthDetail" class="col-form-label">Date of Birth: </label>
-                <input type="date" class="form-control" id="dateOfBirthDetail" name="dateOfBirth" readonly>
-              </div>
-
-              <div class="form-group">
-                <label for="phoneDetail" class="col-form-label">Phone:</label>
-                <input type="tel" class="form-control" id="phoneDetail" name="phone" readonly>
-              </div>
-
-              <div class="form-group">
-                <label for="emailDetail" class="col-form-label">Email:</label>
-                <input type="email" class="form-control" id="emailDetail" name="email" readonly>
-              </div>
-
-            </td>
-            <td width="50%" style="padding-left:10px">
-
-              <div class="form-group">
-                <label for="ddlJobTitleDetail" class="col-sm-4 col-form-label">Job Title:</label>
-                <div class="col-sm-6">
-                  <select class="form-control" id="ddlJobTitleDetail" name="jobtitleid" disabled>
-                    <option>-SELECT-</option>
-                    <option th:each="jobTitle : ${jobTitles}"
-                            th:value="${jobTitle.id}"
-                            th:text="${jobTitle.description}">
+                    <option th:each="houseStatus : ${houseStatuses}"
+                            th:value="${houseStatus.id}"
+                            th:text="${houseStatus.description}">
                     </option>
                   </select>
                 </div>
@@ -938,46 +888,98 @@
               </div>
 
               <div class="form-group">
-                <label for="hireDateDetail" class="col-form-label">Hire Date: </label>
-                <input type="date" class="form-control" id="hireDateDetail" name="hireDate" readonly>
+                <label for="bedroomsDetail" class="col-form-label">Bedrooms: </label>
+                <input type="number" class="form-control" id="bedroomsDetail" name="bedrooms" readonly>
               </div>
 
               <div class="form-group">
-                <label for="addressDetail" class="col-form-label">Address:</label>
-                <input type="text" class="form-control" id="addressDetail" name="address" readonly>
-              </div>
-              <div class="form-group">
-                <label for="cityDetail" class="col-form-label">City:</label>
-                <input type="text" class="form-control" id="cityDetail" name="city" readonly>
+                <label for="bathroomsDetail" class="col-form-label">Bathrooms: </label>
+                <input type="number" class="form-control" id="bathroomsDetail" name="bathrooms" readonly>
               </div>
 
               <div class="form-group">
-                <label for="ddlStateDetail" class="col-form-label">State: </label>
-                <select class="form-control" id="ddlStateDetail" name="stateid" disabled>
+                <label for="storiesDetail" class="col-form-label">Stories: </label>
+                <input type="number" class="form-control" id="storiesDetail" name="stories" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="yearBuiltDetail" class="col-form-label">Year Built: </label>
+                <input type="number" class="form-control" id="yearBuiltDetail" name="yearBuilt" readonly>
+              </div>
+              <div class="form-group">
+                <label for="sqftDetail" class="col-form-label">Sqft: </label>
+                <input type="number" class="form-control" id="sqftDetail" name="sqft" readonly>
+              </div>
+
+            </td>
+            <td width="50%" style="padding-left:10px">
+
+              <div class="form-group">
+                <label for="ddlLocationDetail" class="col-form-label">Location: </label>
+                <select class="form-control" id="ddlLocationDetail" name="locationid" disabled>
                   <option>-SELECT-</option>
-                  <option th:each="state : ${states}"
-                          th:value="${state.id}"
-                          th:text="${state.name}">
+                  <option th:each="location : ${locations}"
+                          th:value="${location.id}"
+                          th:text="${location.address}">
                   </option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="ddlCountryDetail" class="col-form-label">Country: </label>
-                <select class="form-control" id="ddlCountryDetail" name="countryid" disabled>
-                  <option>-SELECT-</option>
-                  <option th:each="country : ${countries}"
-                          th:value="${country.id}"
-                          th:text="${country.description}">
-                  </option>
-                </select>
+                <label for="marketEntryDateDetail" class="col-form-label">Market Entry Date: </label>
+                <input type="date" class="form-control" id="marketEntryDateDetail" name="marketEntryDate" readonly>
               </div>
 
               <div class="form-group">
-                <label for="socialSecurityNumberDetail" class="col-form-label">Social Security Number:</label>
-                <input type="text" class="form-control" id="socialSecurityNumberDetail" name="socialSecurityNumber" readonly>
+                <label for="ddlEmployeeDetail" class="col-sm-4 col-form-label">Employee in Charge:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlEmployeeDetail" name="employeeid" disabled>
+                    <option>-SELECT-</option>
+                    <option th:each="employee : ${employees}"
+                            th:value="${employee.id}"
+                            th:text="${employee.fullName}">
+                    </option>
+                  </select>
+                </div>
               </div>
 
+              <div class="form-group">
+                <label for="descriptionDetail" class="col-form-label">Description: </label>
+                <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlHasPoolDetail" class="col-sm-4 col-form-label">Pool?: </label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlHasPoolDetail" name="hasPool" disabled>
+                    <option>-SELECT-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlHasFireplaceDetail" class="col-sm-4 col-form-label">Fireplace?: </label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlHasFireplaceDetail" name="hasFireplace" disabled>
+                    <option>-SELECT-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ddlHasGarageDetail" class="col-sm-4 col-form-label">Garage?: </label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="ddlHasGarageDetail" name="hasGarage" disabled>
+                    <option>-SELECT-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-form-label">Last Updated By:</label>
                 <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>

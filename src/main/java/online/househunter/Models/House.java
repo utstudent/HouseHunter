@@ -50,7 +50,7 @@ public class House {
     private int stories;
     private int price;
     private int yearBuilt;
-    private boolean hasGarage;
-    private boolean hasPool;
-    private boolean hasFireplace;
+    private String hasGarage;
+    private String hasPool;
+    private String hasFireplace;
 }
