@@ -36,6 +36,8 @@ $(document).ready(function(){
                 $('#capitalDetail').val(state.capital);
                 $('#codeDetail').val(state.code);
                 $('#ddlCountryDetail').val(state.countryid);
+                $('#createdByDetails').val(state.createdBy);
+                $('#createdDateDetails').val(state.createdDate.substr(0,19).replace("T", " "));
                 $('#lastModifiedByDetails').val(state.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
             });

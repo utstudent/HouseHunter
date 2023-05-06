@@ -48,6 +48,8 @@ $(document).ready(function(){
                 $('#ddlCountryDetail').val(contact.countryid);
                 $('#websiteDetail').val(contact.website);
                 $('#detailsDetail').val(contact.details);
+                $('#createdByDetails').val(contact.createdBy);
+                $('#createdDateDetails').val(contact.createdDate.substr(0,19).replace("T", " "));
                 $('#lastModifiedByDetails').val(contact.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(contact.lastModifiedDate.substr(0,19).replace("T", " "));
             });

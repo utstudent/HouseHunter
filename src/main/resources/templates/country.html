@@ -516,7 +516,7 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-
+  <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -563,8 +563,9 @@
       </div>
     </div>
   </div>
-  <!-- End Vertically centered Modal-->
+  <!-- End Edit Modal-->
 
+  <!-- Details Modal -->
   <div class="modal fade" id="detailsModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -599,12 +600,18 @@
               <label for="nationalityDetail" class="col-form-label">Nationality:</label>
               <input type="text" class="form-control" id="nationalityDetail" name="nationality" readonly>
             </div>
-
+            <div class="form-group">
+              <label class="col-form-label">Created By:</label>
+              <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Created On:</label>
+              <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
+            </div>
             <div class="form-group">
               <label class="col-form-label">Last Updated By:</label>
               <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
             </div>
-
             <div class="form-group">
               <label class="col-form-label">Last Updated On:</label>
               <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
@@ -618,8 +625,9 @@
       </div>
     </div>
   </div>
-  <!-- End Vertically centered Modal-->
+  <!-- End Details Modal-->
 
+  <!-- Add Modal -->
   <div class="modal fade" id="addModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -666,9 +674,10 @@
         </div>
       </div>
     </div>
-  </div><!-- End Vertically centered Modal-->
+  </div>
+  <!-- End Add Modal-->
 
-  <!-- Vertically centered Modal -->
+  <!-- Delete Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -685,7 +694,8 @@
         </div>
       </div>
     </div>
-  </div><!-- End Vertically centered Modal-->
+  </div>
+  <!-- End Delete Modal-->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

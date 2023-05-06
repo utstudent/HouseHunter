@@ -31,8 +31,10 @@ $(document).ready(function(){
                 $('#idDetail').val(customerLeadStatus.id);
                 $('#descriptionDetail').val(customerLeadStatus.description);
                 $('#detailsDetail').val(customerLeadStatus.details);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#createdByDetails').val(customerLeadStatus.createdBy);
+                $('#createdDateDetails').val(customerLeadStatus.createdDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(customerLeadStatus.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(customerLeadStatus.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

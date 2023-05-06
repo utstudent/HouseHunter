@@ -2,6 +2,7 @@ package online.househunter.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,7 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public class Person {
+@EqualsAndHashCode(callSuper=false)
+public class Person extends Auditable<String>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

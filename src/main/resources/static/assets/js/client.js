@@ -46,6 +46,8 @@ $(document).ready(function(){
                 $('#ddlCountryDetail').val(client.countryid);
                 $('#websiteDetail').val(client.website);
                 $('#detailsDetail').val(client.details);
+                $('#createdByDetails').val(client.createdBy);
+                $('#createdDateDetails').val(client.createdDate.substr(0,19).replace("T", " "));
                 $('#lastModifiedByDetails').val(client.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(client.lastModifiedDate.substr(0,19).replace("T", " "));
             });

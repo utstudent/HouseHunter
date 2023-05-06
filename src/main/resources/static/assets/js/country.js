@@ -41,6 +41,8 @@ $(document).ready(function(){
         $('#codeDetail').val(country.code);
         $('#continentDetail').val(country.continent);
         $('#nationalityDetail').val(country.nationality);
+        $('#createdByDetails').val(country.createdBy);
+        $('#createdDateDetails').val(country.createdDate.substr(0,19).replace("T", " "));
         $('#lastModifiedByDetails').val(country.lastModifiedBy);
         $('#lastModifiedDateDetails').val(country.lastModifiedDate.substr(0,19).replace("T", " "));
 

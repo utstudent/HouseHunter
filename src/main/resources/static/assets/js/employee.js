@@ -72,6 +72,8 @@ $(document).ready(function(){
                 $('#ddlStateDetail').val(employee.stateid);
                 $('#ddlCountryDetail').val(employee.countryid);
                 $('#socialSecurityNumberDetail').val(employee.socialSecurityNumber);
+                $('#createdByDetails').val(employee.createdBy);
+                $('#createdDateDetails').val(employee.createdDate.substr(0,19).replace("T", " "));
                 $('#lastModifiedByDetails').val(employee.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(employee.lastModifiedDate.substr(0,19).replace("T", " "));
             });

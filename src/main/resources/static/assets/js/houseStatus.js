@@ -31,8 +31,10 @@ $(document).ready(function(){
                 $('#idDetail').val(houseStatus.id);
                 $('#descriptionDetail').val(houseStatus.description);
                 $('#detailsDetail').val(houseStatus.details);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#createdByDetails').val(houseStatus.createdBy);
+                $('#createdDateDetails').val(houseStatus.createdDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(houseStatus.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(houseStatus.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

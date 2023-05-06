@@ -31,8 +31,10 @@ $(document).ready(function(){
                 $('#idDetail').val(employeeType.id);
                 $('#descriptionDetail').val(employeeType.description);
                 $('#detailsDetail').val(employeeType.details);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#createdByDetails').val(employeeType.createdBy);
+                $('#createdDateDetails').val(employeeType.createdDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(employeeType.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(employeeType.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

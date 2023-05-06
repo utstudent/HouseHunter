@@ -64,6 +64,8 @@ $(document).ready(function(){
                 $('#ddlHasPoolDetail').val(house.hasPool);
                 $('#ddlHasFireplaceDetail').val(house.hasFireplace);
                 $('#ddlHasGarageDetail').val(house.hasGarage);
+                $('#createdByDetails').val(house.createdBy);
+                $('#createdDateDetails').val(house.createdDate.substr(0,19).replace("T", " "));
                 $('#lastModifiedByDetails').val(house.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(house.lastModifiedDate.substr(0,19).replace("T", " "));
             });

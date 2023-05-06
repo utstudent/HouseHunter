@@ -31,8 +31,10 @@ $(document).ready(function(){
                 $('#idDetail').val(jobTitle.id);
                 $('#descriptionDetail').val(jobTitle.description);
                 $('#detailsDetail').val(jobTitle.details);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#createdByDetails').val(jobTitle.createdBy);
+                $('#createdDateDetails').val(jobTitle.createdDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(jobTitle.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(jobTitle.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

@@ -32,8 +32,10 @@ $(document).ready(function(){
                 $('#idDetail').val(invoiceStatus.id);
                 $('#descriptionDetail').val(invoiceStatus.description);
                 $('#detailsDetail').val(invoiceStatus.details);
-                $('#lastModifiedByDetails').val(state.lastModifiedBy);
-                $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+                $('#createdByDetails').val(invoiceStatus.createdBy);
+                $('#createdDateDetails').val(invoiceStatus.createdDate.substr(0,19).replace("T", " "));
+                $('#lastModifiedByDetails').val(invoiceStatus.lastModifiedBy);
+                $('#lastModifiedDateDetails').val(invoiceStatus.lastModifiedDate.substr(0,19).replace("T", " "));
             });
             $('#detailsModal').modal();
         })

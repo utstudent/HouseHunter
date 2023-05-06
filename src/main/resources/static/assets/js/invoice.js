@@ -45,6 +45,8 @@ $(document).ready(function(){
             $('#ddlinvoiceStatusDetail').val(invoice.invoicestatusid);
             $('#ddlClientDetail').val(invoice.clientid);
             $('#remarksDetail').val(invoice.remarks);
+            $('#createdByDetails').val(invoice.createdBy);
+            $('#createdDateDetails').val(invoice.createdDate.substr(0,19).replace("T", " "));
             $('#lastModifiedByDetails').val(invoice.lastModifiedBy);
             $('#lastModifiedDateDetails').val(invoice.lastModifiedDate.substr(0,19).replace("T", " "));
         });
