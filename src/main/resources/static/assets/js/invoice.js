@@ -42,7 +42,7 @@ $(document).ready(function(){
 
             $('#paymentTermsDetail').val(invoice.paymentTerms);
             $('#amountPayableDetail').val(invoice.amountPayable);
-            $('#ddlinvoiceStatusDetail').val(invoice.invoicestatusid);
+            $('#ddlInvoiceStatusDetail').val(invoice.invoicestatusid);
             $('#ddlClientDetail').val(invoice.clientid);
             $('#remarksDetail').val(invoice.remarks);
             $('#createdByDetails').val(invoice.createdBy);

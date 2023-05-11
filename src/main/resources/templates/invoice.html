@@ -471,7 +471,8 @@
       <tr th:each="invoice:${invoices}">
         <td th:text="${invoice.id}"></td>
         <td th:text="${#dates.format(invoice.invoiceDate, 'MM/dd/yyyy')}"></td>
-        <td th:text="${invoice.amountPayable}"></td>
+        <td th:text="${#numbers.formatCurrency(invoice.amountPayable)}"></td>
+<!--        <td th:text="${invoice.amountPayable}"></td>-->
         <td th:text="${invoice.invoiceStatus.description}"></td>
         <td th:text="${invoice.client.name}"></td>
         <td th:text="${invoice.remarks}"></td>

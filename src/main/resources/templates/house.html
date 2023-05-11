@@ -477,7 +477,7 @@
           <img th:src="@{'assets/img/house photos/' + ${house.id} +'.jpg'}" width="40" height="40">
         </a>
       </td>
-      <td th:text="${house.price}"></td>
+      <td th:text="${#numbers.formatCurrency(house.price)}"></td>
       <td th:text="${house.houseStatus.description}"></td>
       <td th:text="${house.houseType.description}"></td>
       <td th:text="${house.bedrooms}"></td>
