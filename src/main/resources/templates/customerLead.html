@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>House Management Page</title>
+    <title>Lead Management Page</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -44,9 +44,9 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">NiceAdmin</span>
+        <a th:href="@{/index}" class="logo d-flex align-items-center">
+            <img src="assets/img/house-hunter-website-favicon-color.png" alt="">
+            <span class="d-none d-lg-block">House Hunter</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -440,42 +440,314 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Blank Page</h1>
+        <h1>Leads</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
                 <li class="breadcrumb-item">Pages</li>
-                <li class="breadcrumb-item active">Blank</li>
+                <li class="breadcrumb-item active">Leads</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
-        <div class="row">
-            <h1> List of houses </h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+        New Lead
+    </button>
 
-
-        </div>
-        </div>
-    </section>
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Job Title</th>
+            <th>Company Name</th>
+            <th>Lead Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customerLead:${customerLeads}">
+            <td th:text="${customerLead.firstname} + ' ' + ${customerLead.lastname}"></td>
+            <td th:text="${customerLead.phone}"></td>
+            <td th:text="${customerLead.email}"></td>
+            <td th:text="${customerLead.jobTitle}"></td>
+            <td th:text="${customerLead.companyName}"></td>
+            <td th:text="${customerLead.customerLeadStatus.description}"></td>
+            <td>
+                <div class="btn-group">
+                    <a th:href="@{/customerLeads/findById/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+                    <a th:href="@{/customerLeads/findById/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+                    <a th:href="@{/customerLeads/delete/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
 
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>House Hunter</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="">KaranDevs</a>
     </div>
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Lead</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form th:action="@{/customerLeads/update}" method="put">
+
+                    <div class="form-group">
+                        <label for="idEdit" class="col-form-label">Id: </label>
+                        <input type="text" class="form-control" id="idEdit" name="id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstNameEdit" class="col-form-label">First Name: </label>
+                        <input type="text" class="form-control" id="firstNameEdit" name="firstname" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameEdit" class="col-form-label">Last Name: </label>
+                        <input type="text" class="form-control" id="lastNameEdit" name="lastname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneEdit" class="col-form-label">Phone:</label>
+                        <input type="text" class="form-control" id="phoneEdit" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailEdit" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="emailEdit" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitleEdit" class="col-form-label">Job Title:</label>
+                        <input type="text" class="form-control" id="jobTitleEdit" name="jobTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyNameEdit" class="col-form-label">Company Name:</label>
+                        <input type="text" class="form-control" id="companyNameEdit" name="companyName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlCustomerLeadStatusEdit" class="col-form-label">Lead Status: </label>
+                        <select class="form-control" id="ddlCustomerLeadStatusEdit" name="customerleadstatusid">
+                            <option>-SELECT-</option>
+                            <option th:each="customerLeadStatus : ${customerLeadStatuses}"
+                                    th:value="${customerLeadStatus.id}"
+                                    th:text="${customerLeadStatus.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notesEdit" class="col-form-label">Notes:</label>
+                        <input type="text" class="form-control" id="notesEdit" name="notes">
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Edit Modal-->
+
+<!-- Add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Lead</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form th:action="@{/customerLeads/addNew}" method="post">
+
+                    <div class="form-group">
+                        <label for="firstNameAdd" class="col-form-label">First Name: </label>
+                        <input type="text" class="form-control" id="firstNameAdd" name="firstname" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameAdd" class="col-form-label">Last Name: </label>
+                        <input type="text" class="form-control" id="lastNameAdd" name="lastname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneAdd" class="col-form-label">Phone:</label>
+                        <input type="tel" class="form-control" id="phoneAdd" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAdd" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="emailAdd" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitleAdd" class="col-form-label">Job Title:</label>
+                        <input type="text" class="form-control" id="jobTitleAdd" name="jobTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyNameAdd" class="col-form-label">Company Name:</label>
+                        <input type="text" class="form-control" id="companyNameAdd" name="companyName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlCustomerLeadStatusAdd" class="col-form-label">Lead Status: </label>
+                        <select class="form-control" id="ddlCustomerLeadStatusAdd" name="customerleadstatusid">
+                            <option>-SELECT-</option>
+                            <option th:each="customerLeadStatus : ${customerLeadStatuses}"
+                                    th:value="${customerLeadStatus.id}"
+                                    th:text="${customerLeadStatus.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notesAdd" class="col-form-label">Notes:</label>
+                        <input type="text" class="form-control" id="notesAdd" name="notes">
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add Modal-->
+
+<!-- Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Lead Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="idDetail" class="col-form-label">Id: </label>
+                    <input type="text" class="form-control" id="idDetail" name="Id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="firstNameDetail" class="col-form-label">First Name: </label>
+                    <input type="text" class="form-control" id="firstNameDetail" name="firstname" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="lastNameDetail" class="col-form-label">Last Name: </label>
+                    <input type="text" class="form-control" id="lastNameDetail" name="lastname" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="phoneDetail" class="col-form-label">Phone:</label>
+                    <input type="tel" class="form-control" id="phoneDetail" name="phone" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="emailDetail" class="col-form-label">Email:</label>
+                    <input type="email" class="form-control" id="emailDetail" name="email" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="jobTitleDetail" class="col-form-label">Job Title:</label>
+                    <input type="text" class="form-control" id="jobTitleDetail" name="jobTitle" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="companyNameDetail" class="col-form-label">Company Name:</label>
+                    <input type="text" class="form-control" id="companyNameDetail" name="companyName" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddlCustomerLeadStatusDetail" class="col-form-label">Lead Status: </label>
+                    <select class="form-control" id="ddlCustomerLeadStatusDetail" name="customerleadstatusid">
+                        <option>-SELECT-</option>
+                        <option th:each="customerLeadStatus : ${customerLeadStatuses}"
+                                th:value="${customerLeadStatus.id}"
+                                th:text="${customerLeadStatus.description}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notesDetail" class="col-form-label">Notes:</label>
+                    <input type="email" class="form-control" id="notesDetail" name="notes" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Created By:</label>
+                    <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Created On:</label>
+                    <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Last Updated By:</label>
+                    <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Last Updated On:</label>
+                    <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+                </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Details Modal-->
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this record?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Delete Modal-->
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -486,6 +758,8 @@
 <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="assets/js/customerLead.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

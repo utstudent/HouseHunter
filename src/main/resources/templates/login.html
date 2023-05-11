@@ -60,6 +60,13 @@
 
                 <div class="card-body">
 
+                  <div style="text-align:center; font-size:20px; color:green; font-weight:bold">
+                    <span th:utext="${message}"></span>
+                  </div>
+                  <div style="text-align:center; font-size:20px; color:green; font-weight:bold">
+                    <span class="card-title text-center pb-0 fs-4" th:utext="${message}"></span>
+                  </div>
+
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                     <p class="text-center small">Enter your username & password to login</p>
@@ -92,7 +99,7 @@
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <p class="small mb-0">Don't have account? <a th:href="@{/register}">Create an account</a></p>
                     </div>
                   </form>
 
@@ -126,6 +133,7 @@
   <script src="assets/vendor/quill/quill.min.js"></script>
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
