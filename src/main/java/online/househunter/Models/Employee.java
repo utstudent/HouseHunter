@@ -32,4 +32,6 @@ public class Employee extends Person{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date hireDate;
 
+    private String about;
+
 }

@@ -53,4 +53,9 @@ public class EmployeeService {
 
         }
     }
+
+    public Employee findByUsername(String un) {
+
+        return employeeRepository.findByUsername(un);
+    }
 }
