@@ -537,14 +537,14 @@
                 </div>
                 <div class="form-group">
                   <label for="priceEdit" class="col-form-label">Price: </label>
-                  <input type="number" class="form-control" id="priceEdit" name="price">
+                  <input type="number" class="form-control" id="priceEdit" name="price" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlHouseStatusEdit" class="col-sm-4 col-form-label">House Status:</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHouseStatusEdit" name="housestatusid" >
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHouseStatusEdit" name="housestatusid" required>
+                      <option value="">-SELECT-</option>
                       <option th:each="houseStatus : ${houseStatuses}"
                               th:value="${houseStatus.id}"
                               th:text="${houseStatus.description}">
@@ -555,8 +555,8 @@
 
                 <div class="form-group">
                   <label for="ddlHouseTypeEdit" class="col-form-label">House Type: </label>
-                  <select class="form-control" id="ddlHouseTypeEdit" name="housetypeid">
-                    <option>-SELECT-</option>
+                  <select class="form-control" id="ddlHouseTypeEdit" name="housetypeid" required>
+                    <option value="">-SELECT-</option>
                     <option th:each="houseType : ${houseTypes}"
                             th:value="${houseType.id}"
                             th:text="${houseType.description}">
@@ -566,22 +566,22 @@
 
                 <div class="form-group">
                   <label for="bedroomsEdit" class="col-form-label">Bedrooms: </label>
-                  <input type="number" class="form-control" id="bedroomsEdit" name="bedrooms">
+                  <input type="number" class="form-control" id="bedroomsEdit" name="bedrooms" required>
                 </div>
 
                 <div class="form-group">
                   <label for="bathroomsEdit" class="col-form-label">Bathrooms: </label>
-                  <input type="number" class="form-control" id="bathroomsEdit" name="bathrooms">
+                  <input type="number" class="form-control" id="bathroomsEdit" name="bathrooms" required>
                 </div>
 
                 <div class="form-group">
                   <label for="storiesEdit" class="col-form-label">Stories: </label>
-                  <input type="number" class="form-control" id="storiesEdit" name="stories">
+                  <input type="number" class="form-control" id="storiesEdit" name="stories" required>
                 </div>
 
                 <div class="form-group">
                   <label for="yearBuiltEdit" class="col-form-label">Year Built: </label>
-                  <input type="number" class="form-control" id="yearBuiltEdit" name="yearBuilt">
+                  <input type="number" class="form-control" id="yearBuiltEdit" name="yearBuilt" required>
                 </div>
 
               </td>
@@ -589,13 +589,13 @@
 
                 <div class="form-group">
                   <label for="sqftEdit" class="col-form-label">Sqft: </label>
-                  <input type="number" class="form-control" id="sqftEdit" name="sqft">
+                  <input type="number" class="form-control" id="sqftEdit" name="sqft" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlLocationEdit" class="col-form-label">Location: </label>
-                  <select class="form-control" id="ddlLocationEdit" name="locationid">
-                    <option>-SELECT-</option>
+                  <select class="form-control" id="ddlLocationEdit" name="locationid" required>
+                    <option value="">-SELECT-</option>
                     <option th:each="location : ${locations}"
                             th:value="${location.id}"
                             th:text="${location.address}">
@@ -605,14 +605,14 @@
 
                 <div class="form-group">
                   <label for="marketEntryDateEdit" class="col-form-label">Market Entry Date: </label>
-                  <input type="date" class="form-control" id="marketEntryDateEdit" name="marketEntryDate">
+                  <input type="date" class="form-control" id="marketEntryDateEdit" name="marketEntryDate" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlEmployeeEdit" class="col-sm-4 col-form-label">Employee in Charge:</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlEmployeeEdit" name="employeeid" >
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlEmployeeEdit" name="employeeid" required>
+                      <option value="">-SELECT-</option>
                       <option th:each="employee : ${employees}"
                               th:value="${employee.id}"
                               th:text="${employee.fullName}">
@@ -623,14 +623,14 @@
 
                 <div class="form-group">
                   <label for="descriptionEdit" class="col-form-label">Description: </label>
-                  <input type="text" class="form-control" id="descriptionEdit" name="description">
+                  <input type="text" class="form-control" id="descriptionEdit" name="description" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlHasPoolEdit" class="col-sm-4 col-form-label">Pool?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasPoolEdit" name="hasPool">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasPoolEdit" name="hasPool" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
@@ -640,8 +640,8 @@
                 <div class="form-group">
                   <label for="ddlHasFireplaceEdit" class="col-sm-4 col-form-label">Fireplace?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasFireplaceEdit" name="hasFireplace">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasFireplaceEdit" name="hasFireplace" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
@@ -651,8 +651,8 @@
                 <div class="form-group">
                   <label for="ddlHasGarageEdit" class="col-sm-4 col-form-label">Garage?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasGarageEdit" name="hasGarage">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasGarageEdit" name="hasGarage" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
@@ -698,14 +698,14 @@
 
                 <div class="form-group">
                   <label for="priceAdd" class="col-form-label">Price: </label>
-                  <input type="number" class="form-control" id="priceAdd" name="price" placeholder="Price">
+                  <input type="number" class="form-control" id="priceAdd" name="price" placeholder="Price" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlHouseStatusAdd" class="col-sm-4 col-form-label">House Status:</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHouseStatusAdd" name="housestatusid" >
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHouseStatusAdd" name="housestatusid" required>
+                      <option value="">-SELECT-</option>
                       <option th:each="houseStatus : ${houseStatuses}"
                               th:value="${houseStatus.id}"
                               th:text="${houseStatus.description}">
@@ -716,8 +716,8 @@
 
                 <div class="form-group">
                   <label for="ddlHouseTypeAdd" class="col-form-label">House Type: </label>
-                  <select class="form-control" id="ddlHouseTypeAdd" name="housetypeid">
-                    <option>-SELECT-</option>
+                  <select class="form-control" id="ddlHouseTypeAdd" name="housetypeid" required>
+                    <option value="">-SELECT-</option>
                     <option th:each="houseType : ${houseTypes}"
                             th:value="${houseType.id}"
                             th:text="${houseType.description}">
@@ -727,22 +727,22 @@
 
                 <div class="form-group">
                   <label for="bedroomsAdd" class="col-form-label">Bedrooms: </label>
-                  <input type="number" class="form-control" id="bedroomsAdd" name="bedrooms" placeholder="Bedrooms">
+                  <input type="number" class="form-control" id="bedroomsAdd" name="bedrooms" placeholder="Bedrooms" required>
                 </div>
 
                 <div class="form-group">
                   <label for="bathroomsAdd" class="col-form-label">Bathrooms: </label>
-                  <input type="number" class="form-control" id="bathroomsAdd" name="bathrooms" placeholder="Bathrooms">
+                  <input type="number" class="form-control" id="bathroomsAdd" name="bathrooms" placeholder="Bathrooms" required>
                 </div>
 
                 <div class="form-group">
                   <label for="storiesAdd" class="col-form-label">Stories: </label>
-                  <input type="number" class="form-control" id="storiesAdd" name="stories" placeholder="Stories">
+                  <input type="number" class="form-control" id="storiesAdd" name="stories" placeholder="Stories" required>
                 </div>
 
                 <div class="form-group">
                   <label for="yearBuiltAdd" class="col-form-label">Year Built: </label>
-                  <input type="number" class="form-control" id="yearBuiltAdd" name="yearBuilt" placeholder="Year Built">
+                  <input type="number" class="form-control" id="yearBuiltAdd" name="yearBuilt" placeholder="Year Built" required>
                 </div>
 
               </td>
@@ -750,13 +750,13 @@
 
                 <div class="form-group">
                   <label for="sqftAdd" class="col-form-label">Sqft: </label>
-                  <input type="number" class="form-control" id="sqftAdd" name="sqft" placeholder="Sqft">
+                  <input type="number" class="form-control" id="sqftAdd" name="sqft" placeholder="Sqft" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlLocationAdd" class="col-form-label">Location: </label>
-                  <select class="form-control" id="ddlLocationAdd" name="locationid">
-                    <option>-SELECT-</option>
+                  <select class="form-control" id="ddlLocationAdd" name="locationid" required>
+                    <option value="">-SELECT-</option>
                     <option th:each="location : ${locations}"
                             th:value="${location.id}"
                             th:text="${location.address}">
@@ -766,14 +766,14 @@
 
                 <div class="form-group">
                   <label for="marketEntryDateAdd" class="col-form-label">Market Entry Date: </label>
-                  <input type="date" class="form-control" id="marketEntryDateAdd" name="marketEntryDate" placeholder="Market Entry Date">
+                  <input type="date" class="form-control" id="marketEntryDateAdd" name="marketEntryDate" placeholder="Market Entry Date" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlEmployeeAdd" class="col-sm-4 col-form-label">Employee in Charge:</label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlEmployeeAdd" name="employeeid" >
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlEmployeeAdd" name="employeeid" required>
+                      <option value="">-SELECT-</option>
                       <option th:each="employee : ${employees}"
                               th:value="${employee.id}"
                               th:text="${employee.fullName}">
@@ -784,14 +784,14 @@
 
                 <div class="form-group">
                   <label for="descriptionAdd" class="col-form-label">Description: </label>
-                  <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Description">
+                  <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Description" required>
                 </div>
 
                 <div class="form-group">
                   <label for="ddlHasPoolAdd" class="col-sm-4 col-form-label">Pool?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasPoolAdd" name="hasPool">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasPoolAdd" name="hasPool" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
@@ -801,8 +801,8 @@
                 <div class="form-group">
                   <label for="ddlHasFireplaceAdd" class="col-sm-4 col-form-label">Fireplace?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasFireplaceAdd" name="hasFireplace">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasFireplaceAdd" name="hasFireplace" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
@@ -812,8 +812,8 @@
                 <div class="form-group">
                   <label for="ddlHasGarageAdd" class="col-sm-4 col-form-label">Garage?: </label>
                   <div class="col-sm-6">
-                    <select class="form-control" id="ddlHasGarageAdd" name="hasGarage">
-                      <option>-SELECT-</option>
+                    <select class="form-control" id="ddlHasGarageAdd" name="hasGarage" required>
+                      <option value="">-SELECT-</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
