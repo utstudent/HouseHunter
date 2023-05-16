@@ -523,30 +523,30 @@
           </div>
           <div class="form-group">
             <label for="nameEdit" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameEdit" name="name">
+            <input type="text" class="form-control" id="nameEdit" name="name" required>
           </div>
           <div class="form-group">
             <label for="phoneEdit" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" id="phoneEdit" name="phone">
+            <input type="tel" class="form-control" id="phoneEdit" name="phone" required>
           </div>
           <div class="form-group">
             <label for="emailEdit" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" id="emailEdit" name="email">
+            <input type="email" class="form-control" id="emailEdit" name="email" required>
           </div>
 
           <div class="form-group">
             <label for="addressEdit" class="col-form-label">Address:</label>
-            <input type="text" class="form-control" id="addressEdit" name="address">
+            <input type="text" class="form-control" id="addressEdit" name="address" required>
           </div>
           <div class="form-group">
             <label for="cityEdit" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="cityEdit" name="city">
+            <input type="text" class="form-control" id="cityEdit" name="city" required>
           </div>
 
           <div class="form-group">
             <label for="ddlStateEdit" class="col-form-label">State: </label>
-            <select class="form-control" id="ddlStateEdit" name="stateid">
-              <option>-SELECT-</option>
+            <select class="form-control" id="ddlStateEdit" name="stateid" required>
+              <option value="">-SELECT-</option>
               <option th:each="state : ${states}"
                       th:value="${state.id}"
                       th:text="${state.name}">
@@ -556,8 +556,8 @@
 
           <div class="form-group">
             <label for="ddlCountryEdit" class="col-form-label">Country: </label>
-            <select class="form-control" id="ddlCountryEdit" name="countryid">
-              <option>-SELECT-</option>
+            <select class="form-control" id="ddlCountryEdit" name="countryid" required>
+              <option value="">-SELECT-</option>
               <option th:each="country : ${countries}"
                       th:value="${country.id}"
                       th:text="${country.description}">
@@ -567,12 +567,12 @@
 
           <div class="form-group">
             <label for="websiteEdit" class="col-form-label">Website:</label>
-            <input type="text" class="form-control" id="websiteEdit" name="website">
+            <input type="text" class="form-control" id="websiteEdit" name="website" placeholder="Website">
           </div>
 
           <div class="form-group">
             <label for="detailsEdit" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsEdit" name="details">
+            <input type="text" class="form-control" id="detailsEdit" name="details" placeholder="Details">
           </div>
 
           <div class="form-group">
@@ -605,30 +605,30 @@
 
           <div class="form-group">
             <label for="nameAdd" class="col-form-label">Name: </label>
-            <input type="text" class="form-control" id="nameAdd" name="name">
+            <input type="text" class="form-control" id="nameAdd" name="name" placeholder="Name" required>
           </div>
           <div class="form-group">
             <label for="phoneAdd" class="col-form-label">Phone:</label>
-            <input type="tel" class="form-control" id="phoneAdd" name="phone">
+            <input type="tel" class="form-control" id="phoneAdd" name="phone" placeholder="Phone" required>
           </div>
           <div class="form-group">
             <label for="emailAdd" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" id="emailAdd" name="email">
+            <input type="email" class="form-control" id="emailAdd" name="email" placeholder="Email" required>
           </div>
 
           <div class="form-group">
             <label for="addressAdd" class="col-form-label">Address:</label>
-            <input type="text" class="form-control" id="addressAdd" name="address">
+            <input type="text" class="form-control" id="addressAdd" name="address" placeholder="Address" required>
           </div>
           <div class="form-group">
             <label for="cityAdd" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="cityAdd" name="city">
+            <input type="text" class="form-control" id="cityAdd" name="city" placeholder="City" required>
           </div>
 
           <div class="form-group">
             <label for="ddlStateAdd" class="col-form-label">State: </label>
-            <select class="form-control" id="ddlStateAdd" name="stateid">
-              <option>-SELECT-</option>
+            <select class="form-control" id="ddlStateAdd" name="stateid" required>
+              <option value="">-SELECT-</option>
               <option th:each="state : ${states}"
                       th:value="${state.id}"
                       th:text="${state.name}">
@@ -638,8 +638,8 @@
 
           <div class="form-group">
             <label for="ddlCountryAdd" class="col-form-label">Country: </label>
-            <select class="form-control" id="ddlCountryAdd" name="countryid">
-              <option>-SELECT-</option>
+            <select class="form-control" id="ddlCountryAdd" name="countryid" required>
+              <option value="">-SELECT-</option>
               <option th:each="country : ${countries}"
                       th:value="${country.id}"
                       th:text="${country.description}">
@@ -649,12 +649,12 @@
 
           <div class="form-group">
             <label for="websiteAdd" class="col-form-label">Website:</label>
-            <input type="text" class="form-control" id="websiteAdd" name="website">
+            <input type="text" class="form-control" id="websiteAdd" name="website" placeholder="Website">
           </div>
 
           <div class="form-group">
             <label for="detailsAdd" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsAdd" name="details">
+            <input type="text" class="form-control" id="detailsAdd" name="details" placeholder="Details">
           </div>
 
           <div class="form-group">

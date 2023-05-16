@@ -23,7 +23,7 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests(auth -> auth
-                        .antMatchers("/login", "/register", "/webjars/**", "/scripts/**", "/assets/**","/css/**", "/fonts/**", "/img/**", "/js/**","/users/addNew").permitAll()
+                        .antMatchers("/login", "/register", "/webjars/**", "/scripts/**", "/assets/**","/css/**", "/fonts/**", "/img/**", "/js/**","/users/addNew", "/security/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin()
                 .loginPage("/login").permitAll()

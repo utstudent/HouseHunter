@@ -524,21 +524,21 @@
             </div>
             <div class="form-group">
               <label for="invoiceDateEdit" class="col-form-label">Invoice Date: </label>
-              <input type="date" class="form-control" id="invoiceDateEdit" name="invoiceDate">
+              <input type="date" class="form-control" id="invoiceDateEdit" name="invoiceDate" required>
             </div>
             <div class="form-group">
               <label for="paymentTermsEdit" class="col-form-label">Payment Terms:</label>
-              <input type="text" class="form-control" id="paymentTermsEdit" name="paymentTerms">
+              <input type="text" class="form-control" id="paymentTermsEdit" name="paymentTerms" placeholder="Payment Terms" required>
             </div>
             <div class="form-group">
               <label for="amountPayableEdit" class="col-form-label">Amount Payable:</label>
-              <input type="number" class="form-control" id="amountPayableEdit" name="amountPayable">
+              <input type="number" class="form-control" id="amountPayableEdit" name="amountPayable" placeholder="Amount Payable" required>
             </div>
 
             <div class="form-group">
               <label for="ddlInvoiceStatusEdit" class="col-form-label">Invoice Status: </label>
-              <select class="form-control" id="ddlInvoiceStatusEdit" name="invoicestatusid">
-                <option>-SELECT-</option>
+              <select class="form-control" id="ddlInvoiceStatusEdit" name="invoicestatusid" required>
+                <option value="">-SELECT-</option>
                 <option th:each="invoiceStatus : ${invoiceStatuses}"
                         th:value="${invoiceStatus.id}"
                         th:text="${invoiceStatus.description}">
@@ -548,8 +548,8 @@
 
             <div class="form-group">
               <label for="ddlClientEdit" class="col-form-label">Client: </label>
-              <select class="form-control" id="ddlClientEdit" name="clientid">
-                <option>-SELECT-</option>
+              <select class="form-control" id="ddlClientEdit" name="clientid" required>
+                <option value="">-SELECT-</option>
                 <option th:each="client : ${clients}"
                         th:value="${client.id}"
                         th:text="${client.name}">
@@ -559,7 +559,7 @@
 
             <div class="form-group">
               <label for="remarksEdit" class="col-form-label">Remarks:</label>
-              <input type="text" class="form-control" id="remarksEdit" name="remarks">
+              <input type="text" class="form-control" id="remarksEdit" name="remarks" placeholder="Remarks">
             </div>
 
             <div class="form-group">
@@ -590,17 +590,17 @@
 
             <div class="form-group">
               <label for="invoiceDateAdd" class="col-form-label">Invoice Date: </label>
-              <input type="date" class="form-control" id="invoiceDateAdd" name="invoiceDate">
+              <input type="date" class="form-control" id="invoiceDateAdd" name="invoiceDate" required>
             </div>
             <div class="form-group">
               <label for="amountPayableAdd" class="col-form-label">Amount Payable:</label>
-              <input type="number" class="form-control" id="amountPayableAdd" name="amountPayable">
+              <input type="number" class="form-control" id="amountPayableAdd" name="amountPayable" placeholder="Amount Payable" required>
             </div>
 
             <div class="form-group">
               <label for="ddlinvoiceStatusAdd" class="col-form-label">Invoice Status: </label>
-              <select class="form-control" id="ddlinvoiceStatusAdd" name="invoicestatusid">
-                <option>-SELECT-</option>
+              <select class="form-control" id="ddlinvoiceStatusAdd" name="invoicestatusid" required>
+                <option value="">-SELECT-</option>
                 <option th:each="invoiceStatus : ${invoiceStatuses}"
                         th:value="${invoiceStatus.id}"
                         th:text="${invoiceStatus.description}">
@@ -610,8 +610,8 @@
 
             <div class="form-group">
               <label for="ddlClientAdd" class="col-form-label">Client: </label>
-              <select class="form-control" id="ddlClientAdd" name="clientid">
-                <option>-SELECT-</option>
+              <select class="form-control" id="ddlClientAdd" name="clientid" required>
+                <option value="">-SELECT-</option>
                 <option th:each="client : ${clients}"
                         th:value="${client.id}"
                         th:text="${client.name}">
@@ -621,7 +621,7 @@
 
             <div class="form-group">
               <label for="remarksAdd" class="col-form-label">Remarks:</label>
-              <input type="text" class="form-control" id="remarksAdd" name="remarks">
+              <input type="text" class="form-control" id="remarksAdd" name="remarks" placeholder="Remarks">
             </div>
 
             <div class="form-group">

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Lead Management Page</title>
+    <title>Job Title Management Page</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -440,46 +440,41 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Leads</h1>
+        <h1>Job Titles</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
                 <li class="breadcrumb-item">Pages</li>
-                <li class="breadcrumb-item active">Leads</li>
+                <li class="breadcrumb-item active">Job Titles</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
 
+    <!-- Vertically centered Modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-        New Lead
+        New Job Title
     </button>
 
     <!-- Table with stripped rows -->
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Full Name</th>
-            <th>Phone</th>
-            <th>Email</th>
+            <th>id</th>
             <th>Job Title</th>
-            <th>Company Name</th>
-            <th>Lead Status</th>
+            <th>Details</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="customerLead:${customerLeads}">
-            <td th:text="${customerLead.firstname} + ' ' + ${customerLead.lastname}"></td>
-            <td th:text="${customerLead.phone}"></td>
-            <td th:text="${customerLead.email}"></td>
-            <td th:text="${customerLead.jobTitle}"></td>
-            <td th:text="${customerLead.companyName}"></td>
-            <td th:text="${customerLead.customerLeadStatus.description}"></td>
+        <tr th:each="jobTitle:${jobTitles}">
+            <td th:text="${jobTitle.id}"></td>
+            <td th:text="${jobTitle.description}"></td>
+            <td th:text="${jobTitle.details}"></td>
             <td>
                 <div class="btn-group">
-                    <a th:href="@{/customerLeads/findById/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
-                    <a th:href="@{/customerLeads/findById/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
-                    <a th:href="@{/customerLeads/delete/(id=${customerLead.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+                    <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+                    <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+                    <a th:href="@{/jobTitles/delete/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
                 </div>
             </td>
         </tr>
@@ -505,67 +500,34 @@
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Lead</h5>
+                <h5 class="modal-title">Update Job Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <form th:action="@{/customerLeads/update}" method="put">
-
+                <form th:action="@{/jobTitles/update}" method="put">
                     <div class="form-group">
-                        <label for="idEdit" class="col-form-label">Id: </label>
+                        <label for="idEdit" class="col-form-label">id:</label>
                         <input type="text" class="form-control" id="idEdit" name="id" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="firstNameEdit" class="col-form-label">First Name: </label>
-                        <input type="text" class="form-control" id="firstNameEdit" name="firstname" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastNameEdit" class="col-form-label">Last Name: </label>
-                        <input type="text" class="form-control" id="lastNameEdit" name="lastname" placeholder="Last Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneEdit" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" id="phoneEdit" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="emailEdit" class="col-form-label">Email:</label>
-                        <input type="email" class="form-control" id="emailEdit" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jobTitleEdit" class="col-form-label">Job Title:</label>
-                        <input type="text" class="form-control" id="jobTitleEdit" name="jobTitle" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="companyNameEdit" class="col-form-label">Company Name:</label>
-                        <input type="text" class="form-control" id="companyNameEdit" name="companyName" required>
+                        <label for="descriptionEdit" class="col-form-label">Job Title:</label>
+                        <input type="text" class="form-control" id="descriptionEdit" name="description" placeholder="Job Title" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="ddlCustomerLeadStatusEdit" class="col-form-label">Lead Status: </label>
-                        <select class="form-control" id="ddlCustomerLeadStatusEdit" name="customerleadstatusid">
-                            <option value="">-SELECT-</option>
-                            <option th:each="customerLeadStatus : ${customerLeadStatuses}"
-                                    th:value="${customerLeadStatus.id}"
-                                    th:text="${customerLeadStatus.description}">
-                            </option>
-                        </select>
+                        <label for="detailsEdit" class="col-form-label">Details:</label>
+                        <input type="text" class="form-control" id="detailsEdit" name="details" placeholder="Details" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="notesEdit" class="col-form-label">Notes:</label>
-                        <input type="text" class="form-control" id="notesEdit" name="notes" placeholder="Notes">
-                    </div>
-
-                    <div class="form-group">
-
                         <button type="submit" class="btn btn-primary">Submit</button>
-
                     </div>
 
                 </form>
@@ -583,52 +545,21 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">New Lead</h5>
+                <h5 class="modal-title">New Job Title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <form th:action="@{/customerLeads/addNew}" method="post">
+                <form th:action="@{/jobTitles/addNew}" method="post">
 
                     <div class="form-group">
-                        <label for="firstNameAdd" class="col-form-label">First Name: </label>
-                        <input type="text" class="form-control" id="firstNameAdd" name="firstname" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastNameAdd" class="col-form-label">Last Name: </label>
-                        <input type="text" class="form-control" id="lastNameAdd" name="lastname" placeholder="Last Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneAdd" class="col-form-label">Phone:</label>
-                        <input type="tel" class="form-control" id="phoneAdd" name="phone" placeholder="Phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="emailAdd" class="col-form-label">Email:</label>
-                        <input type="email" class="form-control" id="emailAdd" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jobTitleAdd" class="col-form-label">Job Title:</label>
-                        <input type="text" class="form-control" id="jobTitleAdd" name="jobTitle" placeholder="Job Title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="companyNameAdd" class="col-form-label">Company Name:</label>
-                        <input type="text" class="form-control" id="companyNameAdd" name="companyName" placeholder="Company Name" required>
+                        <label for="descriptionAdd" class="col-form-label">Job Title:</label>
+                        <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Job Title" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="ddlCustomerLeadStatusAdd" class="col-form-label">Lead Status: </label>
-                        <select class="form-control" id="ddlCustomerLeadStatusAdd" name="customerleadstatusid" required>
-                            <option value="">-SELECT-</option>
-                            <option th:each="customerLeadStatus : ${customerLeadStatuses}"
-                                    th:value="${customerLeadStatus.id}"
-                                    th:text="${customerLeadStatus.description}">
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notesAdd" class="col-form-label">Notes:</label>
-                        <input type="text" class="form-control" id="notesAdd" name="notes" placeholder="Notes">
+                        <label for="detailsAdd" class="col-form-label">Details:</label>
+                        <input type="text" class="form-control" id="detailsAdd" name="details" placeholder="Details" required>
                     </div>
 
                     <div class="form-group">
@@ -653,71 +584,42 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Lead Details</h5>
+                <h5 class="modal-title">Job Title Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <div class="form-group">
-                    <label for="idDetail" class="col-form-label">Id: </label>
-                    <input type="text" class="form-control" id="idDetail" name="Id" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="firstNameDetail" class="col-form-label">First Name: </label>
-                    <input type="text" class="form-control" id="firstNameDetail" name="firstname" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="lastNameDetail" class="col-form-label">Last Name: </label>
-                    <input type="text" class="form-control" id="lastNameDetail" name="lastname" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="phoneDetail" class="col-form-label">Phone:</label>
-                    <input type="tel" class="form-control" id="phoneDetail" name="phone" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="emailDetail" class="col-form-label">Email:</label>
-                    <input type="email" class="form-control" id="emailDetail" name="email" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="jobTitleDetail" class="col-form-label">Job Title:</label>
-                    <input type="text" class="form-control" id="jobTitleDetail" name="jobTitle" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="companyNameDetail" class="col-form-label">Company Name:</label>
-                    <input type="text" class="form-control" id="companyNameDetail" name="companyName" readonly>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="idDetail" class="col-form-label">id:</label>
+                        <input type="text" class="form-control" id="idDetail" name="id" readonly>
+                    </div>
 
-                <div class="form-group">
-                    <label for="ddlCustomerLeadStatusDetail" class="col-form-label">Lead Status: </label>
-                    <select class="form-control" id="ddlCustomerLeadStatusDetail" name="customerleadstatusid">
-                        <option>-SELECT-</option>
-                        <option th:each="customerLeadStatus : ${customerLeadStatuses}"
-                                th:value="${customerLeadStatus.id}"
-                                th:text="${customerLeadStatus.description}">
-                        </option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="descriptionDetail" class="col-form-label">Job Title:</label>
+                        <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
+                    </div>
 
-                <div class="form-group">
-                    <label for="notesDetail" class="col-form-label">Notes:</label>
-                    <input type="email" class="form-control" id="notesDetail" name="notes" readonly>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">Created By:</label>
-                    <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">Created On:</label>
-                    <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">Last Updated By:</label>
-                    <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">Last Updated On:</label>
-                    <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
-                </div>
+                    <div class="form-group">
+                        <label for="detailsDetail" class="col-form-label">Details:</label>
+                        <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Created By:</label>
+                        <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Created On:</label>
+                        <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Last Updated By:</label>
+                        <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Last Updated On:</label>
+                        <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+                    </div>
 
                 </form>
             </div>
@@ -759,7 +661,7 @@
 <script src="assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="assets/js/customerLead.js"></script>
+<script src="assets/js/jobTitle.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

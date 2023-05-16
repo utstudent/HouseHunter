@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Job Title Management Page</title>
+  <title>Role Management Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -440,19 +440,19 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Job Titles</h1>
+    <h1>Roles</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
         <li class="breadcrumb-item">Pages</li>
-        <li class="breadcrumb-item active">Job Titles</li>
+        <li class="breadcrumb-item active">Roles</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
 
   <!-- Vertically centered Modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-    New Job Title
+    New Role
   </button>
 
   <!-- Table with stripped rows -->
@@ -460,21 +460,21 @@
     <thead>
     <tr>
       <th>id</th>
-      <th>Job Title</th>
+      <th>Role</th>
       <th>Details</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="jobTitle:${jobTitles}">
-      <td th:text="${jobTitle.id}"></td>
-      <td th:text="${jobTitle.description}"></td>
-      <td th:text="${jobTitle.details}"></td>
+    <tr th:each="role:${roles}">
+      <td th:text="${role.id}"></td>
+      <td th:text="${role.description}"></td>
+      <td th:text="${role.details}"></td>
       <td>
         <div class="btn-group">
-          <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
-          <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
-          <a th:href="@{/jobTitles/delete/(id=${jobTitle.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+          <a th:href="@{/roles/findById/(id=${role.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+          <a th:href="@{/roles/findById/(id=${role.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+          <a th:href="@{/roles/delete/(id=${role.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
         </div>
       </td>
     </tr>
@@ -506,24 +506,24 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Update Job Title</h5>
+        <h5 class="modal-title">Update Role</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
-        <form th:action="@{/jobTitles/update}" method="put">
+        <form th:action="@{/roles/update}" method="put">
           <div class="form-group">
             <label for="idEdit" class="col-form-label">id:</label>
             <input type="text" class="form-control" id="idEdit" name="id" readonly>
           </div>
           <div class="form-group">
-            <label for="descriptionEdit" class="col-form-label">Job Title:</label>
-            <input type="text" class="form-control" id="descriptionEdit" name="description" placeholder="Job Title" required>
+            <label for="descriptionEdit" class="col-form-label">Role:</label>
+            <input type="text" class="form-control" id="descriptionEdit" name="description" required>
           </div>
 
           <div class="form-group">
             <label for="detailsEdit" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsEdit" name="details" placeholder="Details" required>
+            <input type="text" class="form-control" id="detailsEdit" name="details" required>
           </div>
 
           <div class="form-group">
@@ -545,21 +545,21 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">New Job Title</h5>
+        <h5 class="modal-title">New Role</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
-        <form th:action="@{/jobTitles/addNew}" method="post">
+        <form th:action="@{/roles/addNew}" method="post">
 
           <div class="form-group">
-            <label for="descriptionAdd" class="col-form-label">Job Title:</label>
-            <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Job Title" required>
+            <label for="descriptionAdd" class="col-form-label">Role:</label>
+            <input type="text" class="form-control" id="descriptionAdd" name="description" required>
           </div>
 
           <div class="form-group">
             <label for="detailsAdd" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsAdd" name="details" placeholder="Details" required>
+            <input type="text" class="form-control" id="detailsAdd" name="details" required>
           </div>
 
           <div class="form-group">
@@ -584,7 +584,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Job Title Details</h5>
+        <h5 class="modal-title">Role Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -596,7 +596,7 @@
           </div>
 
           <div class="form-group">
-            <label for="descriptionDetail" class="col-form-label">Job Title:</label>
+            <label for="descriptionDetail" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
           </div>
 
@@ -604,6 +604,7 @@
             <label for="detailsDetail" class="col-form-label">Details:</label>
             <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
           </div>
+
           <div class="form-group">
             <label class="col-form-label">Created By:</label>
             <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
@@ -661,7 +662,7 @@
 <script src="assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="assets/js/jobTitle.js"></script>
+<script src="assets/js/role.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
