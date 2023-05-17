@@ -74,4 +74,13 @@ public class ApplicationController {
 
         return  "register";
     }
+
+    @GetMapping("/layout")
+    public String layout(){
+        return  "_layout";
+    }
+    @GetMapping("/index2")
+    public String index2(){
+        return  "index2";
+    }
 }

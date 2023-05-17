@@ -1,671 +1,215 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>House Type Management Page</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Mar 09 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
 
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
-
-  <div class="d-flex align-items-center justify-content-between">
-    <a th:href="@{/index}" class="logo d-flex align-items-center">
-      <img src="assets/img/house-hunter-website-favicon-color.png" alt="">
-      <span class="d-none d-lg-block">House Hunter</span>
-    </a>
-    <i class="bi bi-list toggle-sidebar-btn"></i>
-  </div><!-- End Logo -->
-
-  <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="#">
-      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-    </form>
-  </div><!-- End Search Bar -->
-
-  <nav class="header-nav ms-auto">
-    <ul class="d-flex align-items-center">
-
-      <li class="nav-item d-block d-lg-none">
-        <a class="nav-link nav-icon search-bar-toggle " href="#">
-          <i class="bi bi-search"></i>
-        </a>
-      </li><!-- End Search Icon-->
-
-      <li class="nav-item dropdown">
-
-        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-bell"></i>
-          <span class="badge bg-primary badge-number">4</span>
-        </a><!-- End Notification Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-          <li class="dropdown-header">
-            You have 4 new notifications
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-exclamation-circle text-warning"></i>
-            <div>
-              <h4>Lorem Ipsum</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>30 min. ago</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-x-circle text-danger"></i>
-            <div>
-              <h4>Atque rerum nesciunt</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>1 hr. ago</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-check-circle text-success"></i>
-            <div>
-              <h4>Sit rerum fuga</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>2 hrs. ago</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-info-circle text-primary"></i>
-            <div>
-              <h4>Dicta reprehenderit</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>4 hrs. ago</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li class="dropdown-footer">
-            <a href="#">Show all notifications</a>
-          </li>
-
-        </ul><!-- End Notification Dropdown Items -->
-
-      </li><!-- End Notification Nav -->
-
-      <li class="nav-item dropdown">
-
-        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-chat-left-text"></i>
-          <span class="badge bg-success badge-number">3</span>
-        </a><!-- End Messages Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-          <li class="dropdown-header">
-            You have 3 new messages
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>Maria Hudson</h4>
-                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>Anna Nelson</h4>
-                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                <p>6 hrs. ago</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>David Muldon</h4>
-                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                <p>8 hrs. ago</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="dropdown-footer">
-            <a href="#">Show all messages</a>
-          </li>
-
-        </ul><!-- End Messages Dropdown Items -->
-
-      </li><!-- End Messages Nav -->
-
-      <li class="nav-item dropdown pe-3">
-
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-        </a><!-- End Profile Iamge Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>Kevin Anderson</h6>
-            <span>Web Designer</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-person"></i>
-              <span>My Profile</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-gear"></i>
-              <span>Account Settings</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-              <i class="bi bi-question-circle"></i>
-              <span>Need Help?</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>Sign Out</span>
-            </a>
-          </li>
-
-        </ul><!-- End Profile Dropdown Items -->
-      </li><!-- End Profile Nav -->
-
-    </ul>
-  </nav><!-- End Icons Navigation -->
-
-</header><!-- End Header -->
-
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-
-  <ul class="sidebar-nav" id="sidebar-nav">
-
-    <li class="nav-item">
-      <a class="nav-link " th:href="@{/index}">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li><!-- End Dashboard Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-houses"></i><span>Houses</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a th:href="@{/houses}">
-            <i class="bi bi-circle"></i><span>House Data</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/houseTypes}">
-            <i class="bi bi-circle"></i><span>House Type</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/houseStatuses}">
-            <i class="bi bi-circle"></i><span>House Status</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Components Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-people"></i><span>People</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a th:href="@{/employees}">
-            <i class="bi bi-circle"></i><span>Employees</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/clients}">
-            <i class="bi bi-circle"></i><span>Clients</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/suppliers}">
-            <i class="bi bi-circle"></i><span>Suppliers</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/contacts}">
-            <i class="bi bi-circle"></i><span>Contacts</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/users}">
-            <i class="bi bi-circle"></i><span>Users</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Forms Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-person-gear"></i><span>HR Settings</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a th:href="@{/jobTitles}">
-            <i class="bi bi-circle"></i><span>Job Titles</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/employeeTypes}">
-            <i class="bi bi-circle"></i><span>Employee Types</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Tables Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-receipt"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a th:href="@{/invoices}">
-            <i class="bi bi-circle"></i><span>Invoices</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/invoiceStatuses}">
-            <i class="bi bi-circle"></i><span>Invoice Status Values</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Charts Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-globe"></i><span>Globals</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a th:href="@{/countries}">
-            <i class="bi bi-circle"></i><span>Countries</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/states}">
-            <i class="bi bi-circle"></i><span>States</span>
-          </a>
-        </li>
-        <li>
-          <a th:href="@{/locations}">
-            <i class="bi bi-circle"></i><span>Locations</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Icons Nav -->
-
-    <li class="nav-heading">Pages</li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="users-profile.html">
-        <i class="bi bi-person"></i>
-        <span>Profile</span>
-      </a>
-    </li><!-- End Profile Page Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-faq.html">
-        <i class="bi bi-question-circle"></i>
-        <span>F.A.Q</span>
-      </a>
-    </li><!-- End F.A.Q Page Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-contact.html">
-        <i class="bi bi-envelope"></i>
-        <span>Contact</span>
-      </a>
-    </li><!-- End Contact Page Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-register.html">
-        <i class="bi bi-card-list"></i>
-        <span>Register</span>
-      </a>
-    </li><!-- End Register Page Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-login.html">
-        <i class="bi bi-box-arrow-in-right"></i>
-        <span>Login</span>
-      </a>
-    </li><!-- End Login Page Nav -->
-
-  </ul>
-
-</aside><!-- End Sidebar-->
-
 <main id="main" class="main">
 
-  <div class="pagetitle">
-    <h1>House Types</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
-        <li class="breadcrumb-item">Pages</li>
-        <li class="breadcrumb-item active">House Types</li>
-      </ol>
-    </nav>
-  </div><!-- End Page Title -->
+  <div layout:fragment="content">
 
-  <!-- Vertically centered Modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-    New House Type
-  </button>
+    <div class="pagetitle">
+      <h1>House Types</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">House Types</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
 
-  <!-- Table with stripped rows -->
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>id</th>
-      <th>House Type</th>
-      <th>Details</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="houseType:${houseTypes}">
-      <td th:text="${houseType.id}"></td>
-      <td th:text="${houseType.description}"></td>
-      <td th:text="${houseType.details}"></td>
-      <td>
-        <div class="btn-group">
-          <a th:href="@{/houseTypes/findById/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
-          <a th:href="@{/houseTypes/findById/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
-          <a th:href="@{/houseTypes/delete/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+    <!-- Vertically centered Modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+      New House Type
+    </button>
+
+    <!-- Table with stripped rows -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>House Type</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="houseType:${houseTypes}">
+        <td th:text="${houseType.id}"></td>
+        <td th:text="${houseType.description}"></td>
+        <td th:text="${houseType.details}"></td>
+        <td>
+          <div class="btn-group">
+            <a th:href="@{/houseTypes/findById/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-success" id="editButton" data-bs-target="#editModal">Edit</a>
+            <a th:href="@{/houseTypes/findById/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-warning" id="detailsButton" data-bs-target="#detailsModal">Details</a>
+            <a th:href="@{/houseTypes/delete/(id=${houseType.id})}" data-bs-toggle="modal" class="btn btn-danger" id="deleteButton" data-bs-target="#deleteModal">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- End Table with stripped rows -->
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update House Type</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form th:action="@{/houseTypes/update}" method="put">
+              <div class="form-group">
+                <label for="idEdit" class="col-form-label">id:</label>
+                <input type="text" class="form-control" id="idEdit" name="id" readonly>
+              </div>
+              <div class="form-group">
+                <label for="descriptionEdit" class="col-form-label">House Type:</label>
+                <input type="text" class="form-control" id="descriptionEdit" name="description" required>
+              </div>
+
+              <div class="form-group">
+                <label for="detailsEdit" class="col-form-label">Details:</label>
+                <input type="text" class="form-control" id="detailsEdit" name="details" required>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <!-- End Table with stripped rows -->
+      </div>
+    </div>
+    <!-- End Edit Modal-->
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New House Type</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form th:action="@{/houseTypes/addNew}" method="post">
+
+              <div class="form-group">
+                <label for="descriptionAdd" class="col-form-label">House Type:</label>
+                <input type="text" class="form-control" id="descriptionAdd" name="description" required>
+              </div>
+
+              <div class="form-group">
+                <label for="detailsAdd" class="col-form-label">Details:</label>
+                <input type="text" class="form-control" id="detailsAdd" name="details" required>
+              </div>
+
+              <div class="form-group">
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Add Modal-->
+
+    <!-- Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">House Type Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
+                <label for="idDetail" class="col-form-label">id:</label>
+                <input type="text" class="form-control" id="idDetail" name="id" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="descriptionDetail" class="col-form-label">Description:</label>
+                <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="detailsDetail" class="col-form-label">Details:</label>
+                <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
+              </div>
+
+              <div class="form-group">
+                <label class="col-form-label">Created By:</label>
+                <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Created On:</label>
+                <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Last Updated By:</label>
+                <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Last Updated On:</label>
+                <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Details Modal-->
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this record?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Delete Modal-->
+
+  </div>
 
 </main><!-- End #main -->
-
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-  <div class="copyright">
-    &copy; Copyright <strong><span>House Hunter</span></strong>. All Rights Reserved
-  </div>
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-    Designed by <a href="">KaranDevs</a>
-  </div>
-</footer><!-- End Footer -->
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-<!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Update House Type</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-        <form th:action="@{/houseTypes/update}" method="put">
-          <div class="form-group">
-            <label for="idEdit" class="col-form-label">id:</label>
-            <input type="text" class="form-control" id="idEdit" name="id" readonly>
-          </div>
-          <div class="form-group">
-            <label for="descriptionEdit" class="col-form-label">House Type:</label>
-            <input type="text" class="form-control" id="descriptionEdit" name="description" required>
-          </div>
-
-          <div class="form-group">
-            <label for="detailsEdit" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsEdit" name="details" required>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Edit Modal-->
-
-<!-- Add Modal -->
-<div class="modal fade" id="addModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">New House Type</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-        <form th:action="@{/houseTypes/addNew}" method="post">
-
-          <div class="form-group">
-            <label for="descriptionAdd" class="col-form-label">House Type:</label>
-            <input type="text" class="form-control" id="descriptionAdd" name="description" required>
-          </div>
-
-          <div class="form-group">
-            <label for="detailsAdd" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsAdd" name="details" required>
-          </div>
-
-          <div class="form-group">
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-          </div>
-
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Add Modal-->
-
-<!-- Details Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">House Type Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-        <form>
-          <div class="form-group">
-            <label for="idDetail" class="col-form-label">id:</label>
-            <input type="text" class="form-control" id="idDetail" name="id" readonly>
-          </div>
-
-          <div class="form-group">
-            <label for="descriptionDetail" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="descriptionDetail" name="description" readonly>
-          </div>
-
-          <div class="form-group">
-            <label for="detailsDetail" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsDetail" name="details" readonly>
-          </div>
-
-          <div class="form-group">
-            <label class="col-form-label">Created By:</label>
-            <input type="text" class="form-control" id="createdByDetails" name="createdBy" readonly>
-          </div>
-          <div class="form-group">
-            <label class="col-form-label">Created On:</label>
-            <input type="text" class="form-control" id="createdDateDetails" name="createdDate" readonly>
-          </div>
-          <div class="form-group">
-            <label class="col-form-label">Last Updated By:</label>
-            <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
-          </div>
-          <div class="form-group">
-            <label class="col-form-label">Last Updated On:</label>
-            <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Details Modal-->
-
-<!-- Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirm Delete</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete this record?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, Delete</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Delete Modal-->
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/chart.js/chart.umd.js"></script>
-<script src="assets/vendor/echarts/echarts.min.js"></script>
-<script src="assets/vendor/quill/quill.min.js"></script>
-<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="assets/js/houseType.js"></script>
-
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
 
 </body>
 
