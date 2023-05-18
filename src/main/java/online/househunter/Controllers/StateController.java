@@ -20,11 +20,17 @@ public class StateController {
     private CountryService countryService;
 
     @GetMapping("/states")
-    public String goStates(Model model){
-        List<State> stateList = stateService.getStates();
-        model.addAttribute("states",stateList);
+    public String goStates(Model model, String keyword){
+        List<State> stateList;
+
+        if (keyword==null) {
+            stateList = stateService.getStates();
+        } else{
+            stateList = stateService.findByKeyword(keyword);
+        }
 
         List<Country> countryList = countryService.getCountries();
+        model.addAttribute("states",stateList);
         model.addAttribute("countries",countryList);
         return  "state";
     }

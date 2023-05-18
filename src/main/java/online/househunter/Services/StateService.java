@@ -35,4 +35,8 @@ public class StateService {
     public void delete(Long id) {
         stateRepository.deleteById(id);
     }
+
+    public List<State> findByKeyword(String keyword){
+        return stateRepository.findByKeyword(keyword);
+    }
 }

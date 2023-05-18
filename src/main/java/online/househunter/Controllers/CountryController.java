@@ -16,8 +16,15 @@ public class CountryController {
     private CountryService countryService;
 
     @GetMapping("/countries")
-    public String goCountries(Model model){
-        List<Country> countryList = countryService.getCountries();
+    public String goCountries(Model model, String keyword){
+        List<Country> countryList;
+
+        if (keyword==null) {
+            countryList = countryService.getCountries();
+        } else{
+            countryList = countryService.findByKeyword(keyword);
+        }
+
         model.addAttribute("countries",countryList);
         return  "country";
     }

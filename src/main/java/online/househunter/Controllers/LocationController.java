@@ -22,11 +22,17 @@ public class LocationController {
     @Autowired private LocationService locationService;
 
     @GetMapping("/locations")
-    public String goLocations(Model model){
-        List<Location> locationList = locationService.getLocations();
+    public String goLocations(Model model, String keyword){
+        List<Location> locationList;
+
+        if (keyword==null) {
+            locationList = locationService.getLocations();
+        } else{
+            locationList = locationService.findByKeyword(keyword);
+        }
+
         List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.getCountries();
-
         model.addAttribute("locations",locationList);
         model.addAttribute("states",stateList);
         model.addAttribute("countries",countryList);

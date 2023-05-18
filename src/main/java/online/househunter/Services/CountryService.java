@@ -34,4 +34,9 @@ public class CountryService {
     public void delete(Long id) {
         countryRepository.deleteById(id);
     }
+
+    public List<Country> findByKeyword(String keyword){
+        return countryRepository.findByKeyword(keyword);
+    }
+
 }

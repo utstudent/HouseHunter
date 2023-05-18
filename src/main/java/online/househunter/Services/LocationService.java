@@ -35,4 +35,8 @@ public class LocationService {
     public void delete(Long id) {
         locationRepository.deleteById(id);
     }
+
+    public List<Location> findByKeyword(String keyword){
+        return locationRepository.findByKeyword(keyword);
+    }
 }

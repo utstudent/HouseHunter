@@ -24,9 +24,29 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-      New Location
-    </button>
+
+    <div class="row">
+      <div class="col-lg-6">
+
+        <!-- Vertically centered Modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+          New Location
+        </button>
+
+      </div>
+      <div class="col-lg-3">
+
+        <div class="search-bar">
+          <form class="search-form d-flex align-items-center" th:action="@{/locations}">
+            <input type="text" name="keyword" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+          </form>
+        </div><!-- End Search Bar -->
+
+      </div>
+
+    </div>
+
 
     <!-- Table with stripped rows -->
     <table class="table table-striped">
