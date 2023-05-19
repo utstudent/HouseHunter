@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<head>
+  <title>Not Found 404</title>
+</head>
+
+<body>
+
+<main id="main" class="main">
+
+  <div layout:fragment="content">
+
+    <div class="container">
+
+      <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+        <h1>404</h1>
+        <h2>The page you are looking for doesn't exist.</h2>
+        <a class="btn" th:href="@{/index}">Back to home</a>
+        <img src="/assets/img/not-found.svg" class="img-fluid py-5" alt="Page Not Found">
+        <div class="credits">
+          Designed by <a href="">KaranDevs</a>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+</main>
+<!-- End #main -->
+
+</body>
+
+</html>

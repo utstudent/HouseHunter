@@ -19,8 +19,16 @@ public class ClientController {
     @Autowired private StateService stateService;
 
     @GetMapping("/clients")
-    public String goClients(Model model){
-        List<Client> clientList = clientService.getClients();
+    public String goClients(Model model, String keyword){
+        List<Client> clientList;
+
+        if(keyword==null) {
+            clientList = clientService.getClients();
+        } else {
+            clientList = clientService.findByKeyword(keyword);
+        }
+
+
         List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.getCountries();
 

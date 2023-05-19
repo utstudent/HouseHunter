@@ -19,10 +19,16 @@ public class HouseController {
     @Autowired private EmployeeService employeeService;
     @Autowired private LocationService locationService;
 
-
     @GetMapping("/houses")
-    public String goHouses(Model model){
-        List<House> houseList = houseService.getHouses();
+    public String goHouses(Model model, String keyword){
+        List<House> houseList;
+
+        if(keyword == null) {
+            houseList = houseService.getHouses();
+        } else {
+            houseList = houseService.findByKeyword(keyword);
+        }
+
         List<HouseType> houseTypeList = houseTypeService.getHouseTypes();
         List<HouseStatus> houseStatusList = houseStatusService.getHouseStatuses();
         List<Employee> employeeList = employeeService.getEmployees();

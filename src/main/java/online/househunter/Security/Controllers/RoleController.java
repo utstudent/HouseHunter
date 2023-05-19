@@ -27,7 +27,7 @@ public class RoleController {
         model.addAttribute("user", user);
         model.addAttribute("userRoles", roleService.getUserRoles(user));
         model.addAttribute("userNotRoles", roleService.getUserNotRoles(user));
-        return "/userEdit";
+        return "userEdit";
     }
 
     @GetMapping("/roles")
@@ -58,5 +58,19 @@ public class RoleController {
     public String delete(Long id) {
         roleService.delete(id);
         return "redirect:/roles";
+    }
+
+    @RequestMapping("/security/role/assign/{userId}/{roleId}")
+    public String assignRole(@PathVariable Long userId,
+                             @PathVariable Long roleId){
+        roleService.assignUserRole(userId, roleId);
+        return "redirect:/security/user/Edit/"+userId;
+    }
+
+    @RequestMapping("/security/role/unassign/{userId}/{roleId}")
+    public String unassignRole(@PathVariable Long userId,
+                               @PathVariable Long roleId){
+        roleService.unassignUserRole(userId, roleId);
+        return "redirect:/security/user/Edit/"+userId;
     }
 }

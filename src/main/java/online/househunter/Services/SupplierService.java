@@ -35,4 +35,8 @@ public class SupplierService {
     public void delete(Long id) {
         supplierRepository.deleteById(id);
     }
+
+    public List<Supplier> findByKeyword(String keyword){
+        return supplierRepository.findByKeyword(keyword);
+    }
 }

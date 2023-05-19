@@ -40,4 +40,8 @@ public class UserService {
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
+
+    public List<User> findByKeyword(String keyword){
+        return userRepository.findByKeyword(keyword);
+    }
 }

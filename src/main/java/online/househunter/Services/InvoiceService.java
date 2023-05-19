@@ -35,4 +35,8 @@ public class InvoiceService {
     public void delete(Long id) {
         invoiceRepository.deleteById(id);
     }
+
+    public List<Invoice> findByKeyword(String keyword){
+        return invoiceRepository.findByKeyword(keyword);
+    }
 }

@@ -1,8 +1,6 @@
 package online.househunter.Controllers;
 
-import online.househunter.Models.Contact;
-import online.househunter.Models.Country;
-import online.househunter.Models.State;
+import online.househunter.Models.*;
 import online.househunter.Services.ContactService;
 import online.househunter.Services.CountryService;
 import online.househunter.Services.StateService;
@@ -24,8 +22,15 @@ public class ContactController {
     @Autowired private StateService stateService;
 
     @GetMapping("/contacts")
-    public String goContacts(Model model){
-        List<Contact> contactList = contactService.getContacts();
+    public String goContacts(Model model, String keyword){
+        List<Contact> contactList;
+
+        if(keyword==null) {
+            contactList = contactService.getContacts();
+        } else {
+            contactList = contactService.findByKeyword(keyword);
+        }
+
         List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.getCountries();
 

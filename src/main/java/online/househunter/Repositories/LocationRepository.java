@@ -11,6 +11,6 @@ import java.util.List;
 public interface LocationRepository extends JpaRepository<Location, Long> {
 
     @Query(value = "select l from Location l where " +
-            "concat(l.address, l.city, l.zipcode, l.description) LIKE %?1%")
+            "concat(l.address, l.city, l.zipcode, l.state.name, l.country.description) LIKE %?1%")
     List<Location> findByKeyword(String keyword);
 }

@@ -1,8 +1,6 @@
 package online.househunter.Controllers;
 
-import online.househunter.Models.Client;
-import online.househunter.Models.Invoice;
-import online.househunter.Models.InvoiceStatus;
+import online.househunter.Models.*;
 import online.househunter.Services.ClientService;
 import online.househunter.Services.InvoiceService;
 import online.househunter.Services.InvoiceStatusService;
@@ -21,8 +19,15 @@ public class InvoiceController {
     @Autowired private ClientService clientService;
 
     @GetMapping("/invoices")
-    public String goInvoices(Model model){
-        List<Invoice> invoiceList = invoiceService.getInvoices();
+    public String goInvoices(Model model, String keyword){
+        List<Invoice> invoiceList;
+
+        if(keyword == null) {
+            invoiceList = invoiceService.getInvoices();
+        } else {
+            invoiceList = invoiceService.findByKeyword(keyword);
+        }
+
         List<InvoiceStatus> invoiceStatusList = invoiceStatusService.getInvoiceStatuses();
         List<Client> clientList = clientService.getClients();
 

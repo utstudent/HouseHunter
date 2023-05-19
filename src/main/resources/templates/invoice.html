@@ -24,9 +24,28 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-      New Invoice
-    </button>
+    <div class="row">
+      <div class="col-lg-6">
+
+        <!-- Vertically centered Modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+          New Invoice
+        </button>
+
+      </div>
+      <div class="col-lg-3">
+
+        <div class="search-bar">
+          <form class="search-form d-flex align-items-center" th:action="@{/invoices}">
+            <input type="text" name="keyword" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+          </form>
+        </div><!-- End Search Bar -->
+
+      </div>
+
+    </div>
+
 
     <!-- Table with stripped rows -->
     <table class="table table-striped">
@@ -148,9 +167,15 @@
                 <label for="invoiceDateAdd" class="col-form-label">Invoice Date: </label>
                 <input type="date" class="form-control" id="invoiceDateAdd" name="invoiceDate" required>
               </div>
+
               <div class="form-group">
                 <label for="amountPayableAdd" class="col-form-label">Amount Payable:</label>
                 <input type="number" class="form-control" id="amountPayableAdd" name="amountPayable" placeholder="Amount Payable" required>
+              </div>
+
+              <div class="form-group">
+                <label for="paymentTermsAdd" class="col-form-label">Payment Terms:</label>
+                <input type="number" class="form-control" id="paymentTermsAdd" name="paymentTerms" placeholder="Payment Terms" required>
               </div>
 
               <div class="form-group">

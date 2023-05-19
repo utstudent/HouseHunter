@@ -35,4 +35,8 @@ public class ContactService {
     public void delete(Long id) {
         contactRepository.deleteById(id);
     }
+
+    public List<Contact> findByKeyword(String keyword){
+        return contactRepository.findByKeyword(keyword);
+    }
 }

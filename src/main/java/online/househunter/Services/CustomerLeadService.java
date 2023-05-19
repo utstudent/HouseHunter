@@ -35,4 +35,12 @@ public class CustomerLeadService {
     public void delete(Long id) {
         customerLeadRepository.deleteById(id);
     }
+
+    public List<CustomerLead> findByKeyword(String keyword){
+        return customerLeadRepository.findByKeyword(keyword);
+    }
+
+    public int countByCustomerLeadStatus_Description(String description) {
+        return customerLeadRepository.countByCustomerLeadStatus_Description(description);
+    }
 }

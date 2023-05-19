@@ -20,8 +20,15 @@ public class EmployeeController {
     @Autowired private JobTitleService jobTitleService;
 
     @GetMapping("/employees")
-    public String goEmployees(Model model){
-        List<Employee> employeeList = employeeService.getEmployees();
+    public String goEmployees(Model model, String keyword){
+        List<Employee> employeeList;
+
+        if(keyword==null) {
+            employeeList = employeeService.getEmployees();
+        } else {
+            employeeList = employeeService.findByKeyword(keyword);
+        }
+
         List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.getCountries();
         List<JobTitle> jobTitleList = jobTitleService.getJobTitles();

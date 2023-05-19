@@ -1,13 +1,55 @@
 package online.househunter;
 
+import online.househunter.Models.*;
+import online.househunter.Services.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class ApplicationController {
 
+    @Autowired private CustomerLeadService customerLeadService;
+    @Autowired private HouseService houseService;
+    @Autowired private HouseTypeService houseTypeService;
+    @Autowired private HouseStatusService houseStatusService;
+    @Autowired private EmployeeService employeeService;
+    @Autowired private LocationService locationService;
+
+    @Autowired private InvoiceService invoiceService;
+
+    @Autowired private CustomerLeadStatusService customerLeadStatusService;
+
+    @Autowired private SupplierService supplierService;
+
     @GetMapping("/index")
-    public String goHome(){
+    public String goHome(Model model){
+
+        List<House> houseList= houseService.getHouses();
+        List<HouseType> houseTypeList = houseTypeService.getHouseTypes();
+        List<HouseStatus> houseStatusList = houseStatusService.getHouseStatuses();
+        List<Employee> employeeList = employeeService.getEmployees();
+        List<Location> locationList = locationService.getLocations();
+        List<CustomerLeadStatus> customerLeadStatusList = customerLeadStatusService.getCustomerLeadStatuses();
+        List<CustomerLead> customerLeadList = customerLeadService.getCustomerLeads();
+        List<Invoice> invoiceList = invoiceService.getInvoices();
+        List<Supplier> supplierList = supplierService.getSuppliers();
+
+        model.addAttribute("customerLeads",customerLeadList);
+        model.addAttribute("customerLeadStatuses",customerLeadStatusList);
+        model.addAttribute("houses",houseList);
+        model.addAttribute("houseTypes",houseTypeList);
+        model.addAttribute("houseStatuses",houseStatusList);
+        model.addAttribute("employees",employeeList);
+        model.addAttribute("locations",locationList);
+        model.addAttribute("invoices",invoiceList);
+        model.addAttribute("suppliers", supplierList);
+
+        int rawLeadCount = customerLeadService.countByCustomerLeadStatus_Description("Raw");
+        model.addAttribute("rawLeadCount", rawLeadCount);
         return  "index";
     }
 
@@ -75,12 +117,18 @@ public class ApplicationController {
         return  "register";
     }
 
+    @GetMapping("/index3")
+    public String index3(){
+
+        return  "index3";
+    }
+
     @GetMapping("/layout")
     public String layout(){
         return  "_layout";
     }
-    @GetMapping("/index2")
-    public String index2(){
-        return  "index2";
+    @GetMapping("/accessDenied")
+    public String accessDenied(){
+        return "accessDenied";
     }
 }

@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -23,25 +21,20 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests(auth -> auth
-                        .antMatchers("/login", "/register", "/webjars/**", "/scripts/**", "/assets/**","/css/**", "/fonts/**", "/img/**", "/js/**","/users/addNew", "/security/user/Edit/**").permitAll()
+                        .antMatchers("/login", "/register", "/webjars/**", "/scripts/**", "/assets/**","/css/**", "/fonts/**", "/img/**", "/js/**","/users/addNew").permitAll()
+                        .antMatchers("/security/user/Edit/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/index", true)
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied")
                 .and()
                 .logout().invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").permitAll();
         return http.build();
-    }
-
-
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
     }
 
     @Bean

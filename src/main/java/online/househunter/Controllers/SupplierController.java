@@ -1,8 +1,6 @@
 package online.househunter.Controllers;
 
-import online.househunter.Models.Supplier;
-import online.househunter.Models.Country;
-import online.househunter.Models.State;
+import online.househunter.Models.*;
 import online.househunter.Services.SupplierService;
 import online.househunter.Services.CountryService;
 import online.househunter.Services.StateService;
@@ -24,8 +22,15 @@ public class SupplierController {
     @Autowired private StateService stateService;
 
     @GetMapping("/suppliers")
-    public String goSuppliers(Model model){
-        List<Supplier> supplierList = supplierService.getSuppliers();
+    public String goSuppliers(Model model, String keyword){
+        List<Supplier> supplierList;
+
+        if (keyword==null) {
+            supplierList = supplierService.getSuppliers();
+        } else {
+            supplierList = supplierService.findByKeyword(keyword);
+        }
+
         List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.getCountries();
 

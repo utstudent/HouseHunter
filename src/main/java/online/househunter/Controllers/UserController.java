@@ -17,8 +17,14 @@ public class UserController {
 
     @Autowired private UserService userService;
     @GetMapping("/users")
-    public String goUsers(Model model){
-        List<User> userList = userService.getUsers();
+    public String goUsers(Model model, String keyword){
+        List<User> userList;
+
+        if(keyword==null) {
+            userList= userService.getUsers();
+        } else {
+            userList = userService.findByKeyword(keyword);
+        }
 
         model.addAttribute("users",userList);
         return "user";

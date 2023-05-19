@@ -35,4 +35,8 @@ public class HouseService {
     public void delete(Long id) {
         houseRepository.deleteById(id);
     }
+
+    public List<House> findByKeyword(String keyword){
+        return houseRepository.findByKeyword(keyword);
+    }
 }

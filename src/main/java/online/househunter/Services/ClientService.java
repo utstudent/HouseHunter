@@ -35,4 +35,8 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
+    public List<Client> findByKeyword(String keyword){
+        return clientRepository.findByKeyword(keyword);
+    }
+
 }

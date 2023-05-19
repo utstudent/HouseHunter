@@ -19,8 +19,15 @@ public class CustomerLeadController {
     @Autowired private CustomerLeadStatusService customerLeadStatusService;
 
     @GetMapping("/customerLeads")
-    public String goCustomerLeads(Model model){
-        List<CustomerLead> customerLeadList = customerLeadService.getCustomerLeads();
+    public String goCustomerLeads(Model model, String keyword){
+        List<CustomerLead> customerLeadList;
+
+        if(keyword==null) {
+            customerLeadList = customerLeadService.getCustomerLeads();
+        } else {
+            customerLeadList = customerLeadService.findByKeyword(keyword);
+        }
+
         List<CustomerLeadStatus> customerLeadStatusList = customerLeadStatusService.getCustomerLeadStatuses();
 
         model.addAttribute("customerLeads",customerLeadList);
