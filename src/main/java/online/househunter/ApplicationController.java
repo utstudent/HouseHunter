@@ -131,4 +131,26 @@ public class ApplicationController {
     public String accessDenied(){
         return "accessDenied";
     }
+
+
+    public static String[] towerBuilder(int nFloors) {
+        String[] answer = new String[nFloors];
+        String tool = "";
+        int counter = 1;
+
+        for (int i =0; i<nFloors-1; i++) {
+            for (int y =0; y<counter; y++){
+                tool += "*";
+            }
+            answer[i] = tool;
+            counter = counter +2;
+            tool = "";
+        }
+
+        return answer;
+    }
+
+
+
+
 }
