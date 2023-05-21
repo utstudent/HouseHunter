@@ -133,20 +133,16 @@ public class ApplicationController {
     }
 
 
-    public static String[] towerBuilder(int nFloors) {
-        String[] answer = new String[nFloors];
-        String tool = "";
-        int counter = 1;
 
-        for (int i =0; i<nFloors-1; i++) {
-            for (int y =0; y<counter; y++){
-                tool += "*";
-            }
-            answer[i] = tool;
-            counter = counter +2;
-            tool = "";
+    public static String countingSheep(int num) {
+        //Add your code here
+
+        String answer = "";
+
+        for (int i =0; i<num; i++) {
+            int number = i+1;
+            answer+= number+" sheep...";
         }
-
         return answer;
     }
 
