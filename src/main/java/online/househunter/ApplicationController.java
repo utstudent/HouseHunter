@@ -133,18 +133,22 @@ public class ApplicationController {
     }
 
 
+    public static int calculateYears(double principal, double interest,  double tax, double desired) {
+        // your code
+        double current  = principal;
+        int year =0;
 
-    public static String countingSheep(int num) {
-        //Add your code here
+        while(current<desired){
+            double interestEarned  = current*0.05;
+            double afterTax = interestEarned*0.82;
+            current+= afterTax;
+            year++;
 
-        String answer = "";
-
-        for (int i =0; i<num; i++) {
-            int number = i+1;
-            answer+= number+" sheep...";
         }
-        return answer;
+
+        return year;
     }
+
 
 
 
