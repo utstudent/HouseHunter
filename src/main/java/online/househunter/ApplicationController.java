@@ -133,21 +133,7 @@ public class ApplicationController {
     }
 
 
-    public static int calculateYears(double principal, double interest,  double tax, double desired) {
-        // your code
-        double current  = principal;
-        int year =0;
 
-        while(current<desired){
-            double interestEarned  = current*0.05;
-            double afterTax = interestEarned*0.82;
-            current+= afterTax;
-            year++;
-
-        }
-
-        return year;
-    }
 
 
 
