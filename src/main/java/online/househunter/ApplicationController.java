@@ -131,12 +131,7 @@ public class ApplicationController {
     public String accessDenied(){
         return "accessDenied";
     }
-
-
-
-
-
-
+    
 
 
 }
