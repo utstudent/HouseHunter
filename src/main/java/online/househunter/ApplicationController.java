@@ -132,6 +132,4 @@ public class ApplicationController {
         return "accessDenied";
     }
     
-
-
 }
