@@ -29,5 +29,4 @@ public class Country extends Auditable<String>{
 
     @OneToMany(mappedBy = "country")
     private List<State> states;
-    
 }
