@@ -18,5 +18,4 @@ public class HouseHunterApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HouseHunterApplication.class, args);
 	}
-
 }
