@@ -17,7 +17,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Country extends Auditable<String>{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
