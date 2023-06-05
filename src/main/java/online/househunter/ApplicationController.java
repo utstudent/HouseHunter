@@ -19,7 +19,6 @@ public class ApplicationController {
     @Autowired private LocationService locationService;
 
     @Autowired private InvoiceService invoiceService;
-
     @Autowired private CustomerLeadStatusService customerLeadStatusService;
 
     @Autowired private SupplierService supplierService;
