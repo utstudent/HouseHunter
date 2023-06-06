@@ -20,7 +20,6 @@ public class ApplicationController {
 
     @Autowired private InvoiceService invoiceService;
     @Autowired private CustomerLeadStatusService customerLeadStatusService;
-
     @Autowired private SupplierService supplierService;
 
     @GetMapping("/index")
