@@ -15,7 +15,6 @@ public class CountryService {
     public List<Country> getCountries(){
         return countryRepository.findAll();
     }
-
     // save new country
     public void save(Country country) {
         countryRepository.save(country);
